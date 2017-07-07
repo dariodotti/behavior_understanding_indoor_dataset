@@ -12,9 +12,9 @@ import main as main_camera017
 
 #Divide image into regions seen as polygons
 #Private variables
-__slice_col = 8
-__slice_row = 6
-__slice_depth = 2
+__slice_col = 4
+__slice_row = 4
+__slice_depth = 3
 
 
 def get_slice_cols():
@@ -44,7 +44,7 @@ def divide_image(my_room):
     #     print 'img not divisible by the given number of slices'
     #     return list_poly
 
-    n_row = range(0,my_room.shape[0],my_room.shape[0]/slice_rows)
+    n_row = range(106,my_room.shape[0],my_room.shape[0]/slice_rows)
 
     n_col = range(0,my_room.shape[1],my_room.shape[1]/slice_cols)
 

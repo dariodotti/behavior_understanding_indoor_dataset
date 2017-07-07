@@ -12,7 +12,7 @@ import video_traj
 
 def get_video_features():
     #read and parse file with recorded data
-    with open('C:/Users/dario.dotti/Documents/pilot_abnormal_behavior_indoor/file_to_analyze_6_labels.txt','r') as f:
+    with open('C:/Users/dario.dotti/Documents/Datasets/my_dataset/wandering_dataset_um/file_to_analyze_6_labels.txt','r') as f:
         files = f.read().split('\n')
         print 'number of recorded files: '+str(len(files))
 
@@ -59,13 +59,13 @@ def get_ambient_sensor_features():
 
 
 def main():
-    scene = cv2.imread('C:/Users/dario.dotti/Documents/pilot_abnormal_behavior_indoor/subject4_1834.jpg')#KinectScreenshot-Color-12-25-18 - Copy
+    scene = cv2.imread('C:/Users/dario.dotti/Documents/Datasets/my_dataset/wandering_dataset_um/subject4_1834.jpg')#KinectScreenshot-Color-12-25-18 - Copy
 
     ##get features from video trajectories
-    #get_video_features()
+    get_video_features()
 
     ##ambient sensor
-    get_ambient_sensor_features()
+    #get_ambient_sensor_features()
 
 
     # ambient_sensor_analysis.org_data_different_tasks(file_AS)

@@ -185,7 +185,7 @@ def set_subject(subject):
 
 def org_data_different_tasks(skeleton_data):
 
-    file_AS = 'C:/Users/dario.dotti/Documents/pilot_abnormal_behavior_indoor/binary/18-10-16_sensors_'+ subjectID +'.txt'
+    file_AS = 'C:/Users/dario.dotti/Documents/Datasets/my_dataset/wandering_dataset_um/binary/18-10-16_sensors_'+ subjectID +'.txt'
 
     sensors_ID = ambient_sensors.org_data_ID(file_AS)
     entrance_door = sensors_ID['entrance']
@@ -570,9 +570,17 @@ def feature_extraction_video_traj(file_traj):
     ##divide image into patches(polygons) and get the positions of each one
     #my_room = np.zeros((414,512),dtype=np.uint8)
     global scene
-    scene = cv2.imread('C:/Users/dario.dotti/Documents/pilot_abnormal_behavior_indoor/subject4_1834.jpg')
+    scene = cv2.imread('C:/Users/dario.dotti/Documents/Datasets/my_dataset/wandering_dataset_um/subject4_1834.jpg')
 
     list_poly = my_img_proc.divide_image(scene)
+
+    ##check patches are correct
+    # for rect in list_poly:
+    #     cv2.rectangle(scene, (int(rect.vertices[1][0]), int(rect.vertices[1][1])),
+    #                   (int(rect.vertices[3][0]), int(rect.vertices[3][1])), (0, 0, 0))
+    #
+    # cv2.imshow('ciao',scene)
+    # cv2.waitKey(0)
 
 
     ##--------------Pre-Processing----------------##

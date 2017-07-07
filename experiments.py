@@ -300,8 +300,8 @@ def experiment_video():
 
 
     #HOT_matrix = np.array(data_organizer.load_matrix_pickle('C:/Users/dario.dotti/Documents/hot_spatial_grid_4x4x3_6_labels_2secWindow.txt'))
-    HOT_matrix_6_tasks = np.array(data_organizer.load_matrix_pickle('C:/Users/dario.dotti/Documents/hot_spatial_grid_4x4x3_6_tasks_2secWindow.txt')).tolist()
-    HOT_matrix_5_tasks = np.array(data_organizer.load_matrix_pickle('C:/Users/dario.dotti/Documents/hot_spatial_grid_4x4x3_5_tasks_2secWindow.txt')).tolist()
+    HOT_matrix_6_tasks = np.array(data_organizer.load_matrix_pickle('C:/Users/dario.dotti/Documents/bow_experiment_data/hot_spatial_grid_4x4x3_6_tasks_2secWindow.txt')).tolist()
+    HOT_matrix_5_tasks = np.array(data_organizer.load_matrix_pickle('C:/Users/dario.dotti/Documents/bow_experiment_data/hot_spatial_grid_4x4x3_5_tasks_2secWindow.txt')).tolist()
 
 
     length_task3 = [45,51,33,51,62]
@@ -340,10 +340,10 @@ def experiment_video():
 
 
     # #Clustering
-    #video_clustering_fit(concatenated_matrix,'C:/Users/dario.dotti/Documents/cl_model_2secWindow_band03.txt')
+    ##video_clustering_fit(concatenated_matrix,'C:/Users/dario.dotti/Documents/cl_model_2secWindow_band03.txt')
 
 
-    cluster_model = data_organizer.load_matrix_pickle('C:/Users/dario.dotti/Documents/cl_model_2secWindow_band03.txt')
+    cluster_model = data_organizer.load_matrix_pickle('C:/Users/dario.dotti/Documents/bow_experiment_data/cl_model_2secWindow_band03.txt')
     labels = cluster_model.predict(HOT_matrix_for_cluster)
 
     labels_counter = Counter(labels).most_common(40)
@@ -357,8 +357,8 @@ def experiment_video():
 
 def experiment_as():
 
-    as_matrix_6_tasks = np.array(data_organizer.load_matrix_pickle('C:/Users/dario.dotti/Documents/AS_activation_6_labels.txt')).tolist()
-    as_matrix_5_tasks_transformed = np.array(data_organizer.load_matrix_pickle('C:/Users/dario.dotti/Documents/AS_activation_5_labels_transformed.txt')).tolist()
+    as_matrix_6_tasks = np.array(data_organizer.load_matrix_pickle('C:/Users/dario.dotti/Documents/bow_experiment_data/AS_activation_6_labels.txt')).tolist()
+    as_matrix_5_tasks_transformed = np.array(data_organizer.load_matrix_pickle('C:/Users/dario.dotti/Documents/bow_experiment_data/AS_activation_5_labels_transformed.txt')).tolist()
 
 
     as_matrix = np.vstack((as_matrix_6_tasks,as_matrix_5_tasks_transformed))

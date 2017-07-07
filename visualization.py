@@ -91,6 +91,7 @@ def bar_plot_motion_over_time(data):
     ax.legend( (rect1[0], rect2[0],rect3[0]), ('stationary', 'slight mov', 'mov'),fontsize=11 )
 
     # axes and labels
+
     ax.set_xlim(9-width,9+len(ind)+width)
     ax.set_xticks(ind+width)
     ax.set_xticklabels(ind)
