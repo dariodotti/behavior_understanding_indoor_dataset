@@ -12,7 +12,7 @@ import video_traj
 
 def get_video_features():
     #read and parse file with recorded data
-    with open('C:/Users/dario.dotti/Documents/Datasets/my_dataset/wandering_dataset_um/file_to_analyze_6_labels.txt','r') as f:
+    with open('C:/Users/dario.dotti/Documents/Datasets/my_dataset/wandering_dataset_um/file_to_analyze_5_labels.txt','r') as f:
         files = f.read().split('\n')
         print 'number of recorded files: '+str(len(files))
 
@@ -34,7 +34,7 @@ def get_video_features():
             matrix_allData_HOT = np.array(traj_features[1])
 
     #scipy.io.savemat('C:/Users/dario.dotti/Documents/hot_spatial_grid_4x4.mat',mdict={'spatial_grid_4x4': matrix_allData_HOT})
-    #my_data_org.save_matrix_pickle(matrix_allData_HOT,'C:/Users/dario.dotti/Documents/hot_spatial_grid_4x4x3_5_tasks_2secWindow.txt')
+    my_data_org.save_matrix_pickle(matrix_allData_HOT,'C:/Users/dario.dotti/Documents/hot_spatial_grid_4x4x3_5_tasks_2secWindow_without_outliers.txt')
 
 
 def get_ambient_sensor_features():

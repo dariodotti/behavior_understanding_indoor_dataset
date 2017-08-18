@@ -8,10 +8,12 @@ import img_processing as my_img_proc
 
 import visualization as vis
 import ambient_sensors
+import data_organizer as data_org
 
 kinect_max_distance=0
 subjectID = ''
-scene = np.zeros((414,512),dtype=np.uint8)
+scene = np.zeros((414,512,3),dtype=np.uint8)
+scene += 255
 
 def draw_joints_and_tracks(body_points,list_poly):
 
@@ -80,10 +82,10 @@ def draw_joints_and_tracks(body_points,list_poly):
 
         if n_frame < 0:
             cv2.imshow('lab',temp_ing)
-            cv2.waitKey(1)
+            cv2.waitKey(0)
         else:
             cv2.imshow('lab',temp_ing)
-            cv2.waitKey(0)
+            cv2.waitKey(1)
 
 
 def xml_parser(path_to_file):
@@ -281,21 +283,21 @@ def org_data_timeIntervals_inside_tasks(skeleton_data_in_tasks):
     return data_task_and_time_slices
 
 
-def get_coordinate_points(time_slice,joint_id):
-
-    #get all the coordinate points of head joint
-    list_points = []
-    list_points_append = list_points.append
-
-    #get x,y,z,id
-    map(lambda line: list_points_append([line[joint_id][0],line[joint_id][1]]),time_slice)
-    zs = map(lambda line: float(line[joint_id][2]),time_slice)
-    ids =map(lambda line: np.int64(line[0][2]),time_slice)
-
-    #apply filter to cancel noise
-    x_f,y_f =my_img_proc.median_filter(list_points)
-
-    return x_f,y_f,zs,ids
+# def get_coordinate_points(time_slice,joint_id):
+#
+#     #get all the coordinate points of head joint
+#     list_points = []
+#     list_points_append = list_points.append
+#
+#     #get x,y,z,id
+#     map(lambda line: list_points_append([line[joint_id][0],line[joint_id][1]]),time_slice)
+#     zs = map(lambda line: float(line[joint_id][2]),time_slice)
+#     ids =map(lambda line: np.int64(line[0][2]),time_slice)
+#
+#     #apply filter to cancel noise
+#     x_f,y_f =my_img_proc.median_filter(list_points)
+#
+#     return x_f,y_f,zs,ids
 
 
 def occupancy_histograms_in_time_interval(my_room, list_poly, time_slices):
@@ -357,13 +359,13 @@ def histograms_of_oriented_trajectories(list_poly,time_slices):
 
     hot_all_data_task_time_slices = []
 
-    for task in time_slices:
-
+    for i_task,task in enumerate(time_slices):
+        #if i_task != 2: continue
 
         hot_all_data_matrix = []
         hot_all_data_matrix_append = hot_all_data_matrix.append
 
-        print 'task'
+        print '###########task########### ',i_task
         for i in xrange(0,len(task)):
             ##Checking the start time of every time slice
             if(len(task[i])>1):
@@ -373,12 +375,12 @@ def histograms_of_oriented_trajectories(list_poly,time_slices):
 
                 continue
             #get x,y,z of every traj point after smoothing process
-            x_filtered,y_filtered,zs,ids = get_coordinate_points(task[i],joint_id=1)#get all position of the head joint id =1
+            x_filtered,y_filtered,zs,ids = my_img_proc.get_coordinate_points(task[i],joint_id=1)#get all position of the head joint id =1
 
             #initialize histogram of oriented tracklets
             hot_matrix = []
 
-            #temp_img = scene.copy()
+            temp_img = scene.copy()
 
             for p in xrange(0,len(list_poly)):
                 tracklet_in_cube_f = []
@@ -396,19 +398,19 @@ def histograms_of_oriented_trajectories(list_poly,time_slices):
                             #print 'close to kinect'
                             tracklet_in_cube_append_c([x_filtered[ci],y_filtered[ci],ids[ci]])
 
-                            #cv2.circle(temp_img,(int(x_filtered[ci]),int(y_filtered[ci])),2,(255,0,0),-1)
+                            cv2.circle(temp_img,(int(x_filtered[ci]),int(y_filtered[ci])),2,(255,0,0),-1)
 
                         elif zs[ci] > (kinect_max_distance-(1.433*2)) and zs[ci] < (kinect_max_distance-1.433):
                             #print 'middle'
                             tracklet_in_cube_append_middle([x_filtered[ci],y_filtered[ci],ids[ci]])
 
-                            #cv2.circle(temp_img,(int(x_filtered[ci]),int(y_filtered[ci])),2,(0,255,0),-1)
+                            cv2.circle(temp_img,(int(x_filtered[ci]),int(y_filtered[ci])),2,(0,255,0),-1)
 
                         elif zs[ci] > (kinect_max_distance-1.433): ##3d cube far from the camera
                             #print 'faraway to kinect'
                             tracklet_in_cube_append_f([x_filtered[ci],y_filtered[ci],ids[ci]])
 
-                            #cv2.circle(temp_img,(int(x_filtered[ci]),int(y_filtered[ci])),2,(0,0,255),-1)
+                            cv2.circle(temp_img,(int(x_filtered[ci]),int(y_filtered[ci])),2,(0,0,255),-1)
 
 
                 for three_d_poly in [tracklet_in_cube_c,tracklet_in_cube_middle,tracklet_in_cube_f]:
@@ -433,10 +435,23 @@ def histograms_of_oriented_trajectories(list_poly,time_slices):
             #time = time_slices[i][0][0][1].split(' ')[3].split(':')
             #filename = 'C:/Users/dario.dotti/Documents/time_windows_HOT/'+subjectID+'_'+time[0]+'_'+time[1]+'_'+time[2]+'.jpg'
             #cv2.imwrite(filename,temp_img)
-            # cv2.imshow('ciao',temp_img)
-            # cv2.waitKey(0)
+
+            ##Test cluster
+            # load cluster data
+            cluster_model = data_org.load_matrix_pickle(
+                'C:/Users/dario.dotti/Documents/bow_experiment_data/cl_30_kmeans_model_2secWindow_newVersion.txt')
+            keys_labels = data_org.load_matrix_pickle(
+                'C:/Users/dario.dotti/Documents/bow_experiment_data/cluster_30_kmeans_word_newVersion.txt')
+
+            similar_word = cluster_model.predict(np.array(hot_matrix).reshape(1, -1))
+            print 's_w ',similar_word
+            if similar_word[0] == 3:
+                cv2.imshow('ciao',temp_img)
+                cv2.waitKey(0)
+                continue
 
             hot_all_data_matrix_append(hot_matrix)
+            print len(hot_all_data_matrix)
 
 
         ## normalize the final matrix
@@ -575,9 +590,9 @@ def feature_extraction_video_traj(file_traj):
     list_poly = my_img_proc.divide_image(scene)
 
     ##check patches are correct
-    # for rect in list_poly:
-    #     cv2.rectangle(scene, (int(rect.vertices[1][0]), int(rect.vertices[1][1])),
-    #                   (int(rect.vertices[3][0]), int(rect.vertices[3][1])), (0, 0, 0))
+    for rect in list_poly:
+        cv2.rectangle(scene, (int(rect.vertices[1][0]), int(rect.vertices[1][1])),
+                      (int(rect.vertices[3][0]), int(rect.vertices[3][1])), (0, 0, 0))
     #
     # cv2.imshow('ciao',scene)
     # cv2.waitKey(0)

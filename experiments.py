@@ -4,7 +4,10 @@ import cv2
 from sklearn.linear_model import LogisticRegression
 from sklearn.cluster import KMeans,MeanShift
 from collections import Counter
+from scipy.spatial.distance import cdist, pdist
+import matplotlib.pylab as plt
 from sklearn.preprocessing import normalize
+import random
 
 import data_organizer
 
@@ -167,6 +170,7 @@ def video_clustering_pred(data):
     #data_organizer.save_matrix_pickle(predict,'C:/Users/dario.dotti/Documents/cl_prediction_2secWindow_band03.txt')
     return predict
 
+
 def example_for_every_cluster_center(pred):
     with open('C:/Users/dario.dotti/Documents/content.txt','r') as f:
         images_name = f.read().split('\n')
@@ -186,7 +190,6 @@ def example_for_every_cluster_center(pred):
         example_for_cl_centers.append([k,v,path])
 
     return example_for_cl_centers
-
 
 
 def visualize_cluster_pred():
@@ -216,14 +219,15 @@ def test_hist_task(cluster_model,labels_counter,HOT_matrix):
 
     print keys_labels
 
-    subject_data = []
+    ##organize the matrix per tasks
+
+    tasks_dict = {'0': [], '1': [], '2': [], '3': [], '4': [],
+                  '5': []}  # ['lookKey','lookBall','conf','ripet','write','tea']
+
     for subject in HOT_matrix:
+        for i_task,task in enumerate(subject):
 
-        task_data = []
-
-        for task in subject:
-
-            hist = np.zeros((1,40))
+            hist = np.zeros((1,len(keys_labels)))
             pred = cluster_model.predict(task)
 
             for p in pred:
@@ -234,44 +238,23 @@ def test_hist_task(cluster_model,labels_counter,HOT_matrix):
                 #else:
                     #print 'outsider'
 
-            hist = normalize(np.array(hist),norm='l1')
-            task_data.append(hist)
+            #hist = normalize(np.array(hist),norm='l1')
+            tasks_dict[str(i_task)].append(hist)
 
+    data_organizer.save_matrix_pickle(tasks_dict,'C:/Users/dario.dotti/Documents/bow_experiment_data/test_PECS/tasks_dict.txt')
 
-        subject_data.append(task_data)
-
-
-    n_label = 6
-
-    tasks_dict = {}
-
-    keyDict = {'0','1','2','3','4','5'}#['lookKey','lookBall','conf','ripet','write','tea']
-
-    for i in keyDict:
-        tasks_dict[i] = []
-
-    print tasks_dict
-
-    #save data per task in dict
-    for s in subject_data:
-        for n_task,t in enumerate(s):
-            tasks_dict[str(n_task)].append(t)
-
-    #print np.array((tasks_dict['3'])).shape
-
-
-    # test_set = tasks_dict['3'][2]
-    # del tasks_dict['3'][2]
-
+    ## labels for the tasks
     labels = []
-    for k in tasks_dict.keys():
 
-        for x in range(0,len(tasks_dict[k])):
-            labels.append(int(k))
+    for k in range(0,6):
+        for x in range(0,len(tasks_dict[str(k)])):
+            labels.append(k)
 
-
+    ##Unroll the dict to make a training matrix
     matrix_training = []
-    for k,v in tasks_dict.items():
+
+    for k in range(0, 6):
+        v = tasks_dict[str(k)]
         print k
         for vv in v:
             if len(matrix_training)>0:
@@ -284,14 +267,6 @@ def test_hist_task(cluster_model,labels_counter,HOT_matrix):
     return matrix_training,labels,tasks_dict
 
 
-    # lr = LogisticRegression()
-    #
-    # lr.fit(matrix_training,np.ravel(labels))
-    #
-    # pred =  lr.predict(test_set)
-    #
-    # print pred
-
 
 def experiment_video():
 
@@ -299,9 +274,11 @@ def experiment_video():
     #as_classification_experiment()
 
 
-    #HOT_matrix = np.array(data_organizer.load_matrix_pickle('C:/Users/dario.dotti/Documents/hot_spatial_grid_4x4x3_6_labels_2secWindow.txt'))
-    HOT_matrix_6_tasks = np.array(data_organizer.load_matrix_pickle('C:/Users/dario.dotti/Documents/bow_experiment_data/hot_spatial_grid_4x4x3_6_tasks_2secWindow.txt')).tolist()
-    HOT_matrix_5_tasks = np.array(data_organizer.load_matrix_pickle('C:/Users/dario.dotti/Documents/bow_experiment_data/hot_spatial_grid_4x4x3_5_tasks_2secWindow.txt')).tolist()
+    HOT_matrix_5_tasks = np.array(data_organizer.load_matrix_pickle('C:/Users/dario.dotti/Documents/bow_experiment_data/test_PECS/hot_spatial_grid_4x4x3_5_tasks_2secWindow_without_outliers.txt')).tolist()
+    HOT_matrix_6_tasks = np.array(data_organizer.load_matrix_pickle(
+        'C:/Users/dario.dotti/Documents/bow_experiment_data/test_PECS/hot_spatial_grid_4x4x3_6_tasks_2secWindow_without_outliers.txt')).tolist()
+    #HOT_matrix_6_tasks = np.array(data_organizer.load_matrix_pickle('C:/Users/dario.dotti/Documents/bow_experiment_data/hot_spatial_grid_4x4x3_6_tasks_2secWindow.txt')).tolist()
+    #HOT_matrix_5_tasks = np.array(data_organizer.load_matrix_pickle('C:/Users/dario.dotti/Documents/bow_experiment_data/hot_spatial_grid_4x4x3_5_tasks_2secWindow.txt')).tolist()
 
 
     length_task3 = [45,51,33,51,62]
@@ -339,20 +316,60 @@ def experiment_video():
     print np.array(HOT_matrix_for_cluster).shape
 
 
-    # #Clustering
+    # #Clustering Meanshift
     ##video_clustering_fit(concatenated_matrix,'C:/Users/dario.dotti/Documents/cl_model_2secWindow_band03.txt')
 
+    #cluster_model = data_organizer.load_matrix_pickle('C:/Users/dario.dotti/Documents/bow_experiment_data/cl_model_2secWindow_band03.txt')
+    #labels = cluster_model.predict(HOT_matrix_for_cluster)
 
-    cluster_model = data_organizer.load_matrix_pickle('C:/Users/dario.dotti/Documents/bow_experiment_data/cl_model_2secWindow_band03.txt')
+
+    # #Clustering KMeans
+    # determine_number_k_kMeans(HOT_matrix_for_cluster)
+    # cluster_model = KMeans(n_clusters=30, n_jobs=-1)
+    # cluster_model.fit(HOT_matrix_for_cluster)
+    # data_organizer.save_matrix_pickle(cluster_model,
+    #                                   'C:/Users/dario.dotti/Documents/bow_experiment_data/cl_30_kmeans_model_2secWindow_newVersion.txt')
+    # data_organizer.save_matrix_pickle(cluster_model,
+    #                                   'C:/Users/dario.dotti/Documents/cl_30_kmeans_model_2secWindow_newVersion.txt')
+
+    cluster_model = data_organizer.load_matrix_pickle('C:/Users/dario.dotti/Documents/bow_experiment_data/test_PECS/cl_30_kmeans_model_2secWindow_without_outliers.txt')
     labels = cluster_model.predict(HOT_matrix_for_cluster)
 
-    labels_counter = Counter(labels).most_common(40)
+    labels_counter = Counter(labels).most_common(30)
+    #data_organizer.save_matrix_pickle(labels_counter,'C:/Users/dario.dotti/Documents/cluster_3_kmeans_word__without_outliers.txt')
 
 
     matrix_training,labels,tasks_dict = test_hist_task(cluster_model,labels_counter,HOT_matrix_6_tasks)
 
 
     return matrix_training,labels,tasks_dict
+
+
+def determine_number_k_kMeans(matrix_activations_data_l1):
+    #matrix_activations_data_l1 = np.array(random.sample(matrix_activations_data_l1,10000))
+    #matrix_activations_data_l1 = matrix_activations_data_l1[:10000]
+    import warnings
+    warnings.filterwarnings("ignore")
+
+    ##Determine number of K
+    ##variance intra cluster
+    #k_range = range(2, 103, 10)
+    k_range = range(2, 73, 10)
+    print k_range
+
+    k_means_var = [KMeans(n_clusters=k,n_jobs=-1).fit(matrix_activations_data_l1) for k in k_range]
+
+    centroids = [X.cluster_centers_ for X in k_means_var]
+
+    k_euclid = [cdist(matrix_activations_data_l1, cent, 'euclidean') for cent in centroids]
+    dist = [np.min(ke, axis=1) for ke in k_euclid]
+    wcss = [sum(d ** 2) for d in dist]
+    tss = sum(pdist(matrix_activations_data_l1) ** 2) / matrix_activations_data_l1.shape[0]
+
+    bss = tss - wcss
+
+    plt.plot(k_range, bss)
+    plt.show()
 
 
 def experiment_as():
@@ -380,22 +397,28 @@ def main_experiment():
 
     BOW_HOT,labels,tasks_dict = experiment_video()
 
-    as_matrix = experiment_as()
+    #as_matrix = experiment_as()
 
-    # data_organizer.save_matrix_pickle(BOW_HOT,'C:/Users/dario.dotti/Documents/BOW_16subject_2sec')
-    # data_organizer.save_matrix_pickle(labels,'C:/Users/dario.dotti/Documents/BOW_labels_16subject_2sec')
-
-    concatenated_matrix = np.hstack((BOW_HOT,as_matrix))
+    #data_organizer.save_matrix_pickle(BOW_HOT,'C:/Users/dario.dotti/Documents/BOW_3_kmeans_16subject_2sec_without_outlier.txt')
+    #data_organizer.save_matrix_pickle(labels,'C:/Users/dario.dotti/Documents/BOW_3_kmeans_labels_16subject_2sec_without_outlier.txt')
 
 
+    #concatenated_matrix = np.hstack((BOW_HOT,as_matrix))
 
-    ripetitive_index = range(32,48)
-    confusion_index = range(48,64)
-    tea_index = range(64,80)
+
+    ## meanshift
+    # ripetitive_index = range(32,48)
+    # confusion_index = range(48,64)
+    # tea_index = range(64,80)
+    ## kmeans
+    confusion_index = range(32,48)
+    ripetitive_index = range(48,64)
+    tea_index = range(81,96)
+
 
     ##classification
 
-    for i_t in ripetitive_index:
+    for i_t in tea_index:
 
         test_set = BOW_HOT[i_t]
         label_test = labels[i_t]

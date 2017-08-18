@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 from scipy import signal
 import matplotlib.path as mplPath
 from math import atan2,degrees,isnan
+from scipy.ndimage.filters import gaussian_filter
 
 
 import main as main_camera017
@@ -75,8 +76,22 @@ def divide_image(my_room):
 
     return list_poly
 
+def get_coordinate_points(occurance, joint_id):
 
-def median_filter(list_points):
+
+    xs = map(lambda line: float(line[joint_id][0]), occurance)
+    ys = map(lambda line: float(line[joint_id][1]), occurance)
+    zs = map(lambda line: float(line[joint_id][2]),occurance)
+    ids =map(lambda line: np.int64(line[0][2]),occurance)
+
+    x_f = gaussian_filter(xs, 3)
+    y_f = gaussian_filter(ys,3)
+
+
+
+    return x_f,y_f,zs,ids
+
+def traj_points_filter(list_points):
 
     x = np.zeros(len(list_points))
     y = np.zeros(len(list_points))
@@ -85,8 +100,12 @@ def median_filter(list_points):
         x[n] = list_points[n][0]
         y[n] = list_points[n][1]
 
-    y1 = signal.medfilt(y,9)
-    x1 = signal.medfilt(x,9)
+
+    #y1 = signal.medfilt(y,3)
+    #x1 = signal.medfilt(x,3)
+
+    y1 = gaussian_filter(y,3)
+    x1 = gaussian_filter(x, 3)
 
     # # plot the results
     # plt.subplot(2,1,1)
