@@ -73,7 +73,7 @@ def draw_joints_and_tracks(body_points,list_poly):
                if i ==0:
                    continue
                cv2.circle(temp_ing,(int(float(joint[0])),int(float(joint[1]))),2,color,-1)
-               if i == 3 and n_frame>0:
+               if i == 5 and n_frame>0:
                    ##draw trajectories
                    cv2.circle(scene,(int(float(joint[0])),int(float(joint[1]))),2,color,-1)
                else:
@@ -186,7 +186,7 @@ def set_subject(subject):
 
 
 def org_data_different_tasks(skeleton_data):
-
+    print subjectID
     file_AS = 'C:/Users/dario.dotti/Documents/Datasets/my_dataset/wandering_dataset_um/binary/18-10-16_sensors_'+ subjectID +'.txt'
 
     sensors_ID = ambient_sensors.org_data_ID(file_AS)
@@ -262,9 +262,11 @@ def org_data_timeIntervals_inside_tasks(skeleton_data_in_tasks):
             list_time_interval_append = list_time_interval.append
             #print init_t
 
-            for t in xrange(len(content_time)):
+
+            for t in xrange(0,len(content_time)):
 
                 if datetime.strptime(content_time[t],'%H:%M:%S')>= init_t and datetime.strptime(content_time[t],'%H:%M:%S') < init_t + my_time_slice:
+
                     list_time_interval_append(skeleton_data_in_tasks[task][t])
 
 
@@ -438,20 +440,19 @@ def histograms_of_oriented_trajectories(list_poly,time_slices):
 
             ##Test cluster
             # load cluster data
-            cluster_model = data_org.load_matrix_pickle(
-                'C:/Users/dario.dotti/Documents/bow_experiment_data/cl_30_kmeans_model_2secWindow_newVersion.txt')
-            keys_labels = data_org.load_matrix_pickle(
-                'C:/Users/dario.dotti/Documents/bow_experiment_data/cluster_30_kmeans_word_newVersion.txt')
-
-            similar_word = cluster_model.predict(np.array(hot_matrix).reshape(1, -1))
-            print 's_w ',similar_word
-            if similar_word[0] == 3:
-                cv2.imshow('ciao',temp_img)
-                cv2.waitKey(0)
-                continue
+            # cluster_model = data_org.load_matrix_pickle(
+            #     'C:/Users/dario.dotti/Documents/bow_experiment_data/cl_30_kmeans_model_2secWindow_newVersion.txt')
+            # keys_labels = data_org.load_matrix_pickle(
+            #     'C:/Users/dario.dotti/Documents/bow_experiment_data/cluster_30_kmeans_word_newVersion.txt')
+            #
+            # similar_word = cluster_model.predict(np.array(hot_matrix).reshape(1, -1))
+            # print 's_w ',similar_word
+            # if similar_word[0] == 3:
+            #     cv2.imshow('ciao',temp_img)
+            #     cv2.waitKey(0)
+            #     continue
 
             hot_all_data_matrix_append(hot_matrix)
-            print len(hot_all_data_matrix)
 
 
         ## normalize the final matrix
@@ -581,19 +582,19 @@ def measure_joints_accuracy(skeleton_data):
 
 
 def feature_extraction_video_traj(file_traj):
-
     ##divide image into patches(polygons) and get the positions of each one
     #my_room = np.zeros((414,512),dtype=np.uint8)
     global scene
     scene = cv2.imread('C:/Users/dario.dotti/Documents/Datasets/my_dataset/wandering_dataset_um/subject4_1834.jpg')
+    #scene = cv2.imread('D:/experiment_data/subject_20/388.jpg')
 
     list_poly = my_img_proc.divide_image(scene)
 
     ##check patches are correct
-    for rect in list_poly:
-        cv2.rectangle(scene, (int(rect.vertices[1][0]), int(rect.vertices[1][1])),
-                      (int(rect.vertices[3][0]), int(rect.vertices[3][1])), (0, 0, 0))
-    #
+    # for rect in list_poly:
+    #     cv2.rectangle(scene, (int(rect.vertices[1][0]), int(rect.vertices[1][1])),
+    #                   (int(rect.vertices[3][0]), int(rect.vertices[3][1])), (0, 0, 0))
+    # #
     # cv2.imshow('ciao',scene)
     # cv2.waitKey(0)
 
@@ -622,6 +623,9 @@ def feature_extraction_video_traj(file_traj):
 
     ##divide data based time info per task
     skeleton_data_in_tasks_and_time_slices = org_data_timeIntervals_inside_tasks(skeleton_data_in_time_slices)
+
+    occupancy_histograms =1
+    return occupancy_histograms,skeleton_data_in_tasks_and_time_slices
 
     ##--------------Feature Extraction-------------##
     print 'feature extraction'

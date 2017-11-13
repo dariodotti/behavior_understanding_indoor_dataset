@@ -5,7 +5,8 @@ from scipy import signal
 import matplotlib.path as mplPath
 from math import atan2,degrees,isnan
 from scipy.ndimage.filters import gaussian_filter
-
+from collections import defaultdict
+from datetime import datetime
 
 import main as main_camera017
 
@@ -87,9 +88,10 @@ def get_coordinate_points(occurance, joint_id):
     x_f = gaussian_filter(xs, 3)
     y_f = gaussian_filter(ys,3)
 
+    xs_int = map(lambda x_i: int(x_i) ,x_f)
+    ys_int = map(lambda y_i: int(y_i) ,y_f)
 
-
-    return x_f,y_f,zs,ids
+    return xs_int,ys_int,zs,ids
 
 def traj_points_filter(list_points):
 
@@ -335,3 +337,63 @@ def display_trajectories(temp_img, list_poly, x, y):
 
     cv2.imshow('lab_room',temp_img)
     cv2.waitKey(0)
+
+
+def sigmoid_function(x):
+    return 1 / (1 + np.exp(-x))
+
+##### my Meanshift #########
+
+def my_gaussian_kernel(d, bw):
+    return np.exp(-0.5*(d/bw)**2) / (bw*np.sqrt(2*np.pi))
+
+def my_mean_shift(data,iterations,kernel_bandwith):
+
+    X = np.copy(data)# Need to copy the data, don't want to modify the originals
+
+    for it in xrange(iterations):
+        print it
+        for i, x in enumerate(X):
+            #if i% 1000 ==0: print datetime.now().time()
+
+            #dist = np.sqrt(((x-X)**2).sum(1))
+            weight = my_gaussian_kernel(np.sqrt(np.sum((x-X)**2,axis=1)),kernel_bandwith)#2.5
+
+            X[i] = np.sum(np.dot(np.expand_dims(weight,1).T,X),axis=0) / np.sum(weight)
+
+    return X # we return the shifted points
+
+
+def my_mean_shift_vect(data,iterations,kernel_bandwith):
+
+    X = np.copy(data).astype(dtype='float16') # Need to copy the data, don't want to modify the originals
+
+    for it in xrange(iterations):
+
+        expd = np.expand_dims(X, 2)  # need another dimension...
+        tiled = np.tile(expd, X.shape[0])  # ...to tile up the vectors
+
+        dist = np.sqrt(((np.transpose(X) - tiled) ** 2).sum(1))
+        weight = my_gaussian_kernel(dist, kernel_bandwith)  # 2.5
+
+        summed_weight = np.sum(weight, 0)  # the array of the summed weights, for normalize the weighted vectors
+        shifted_pts = np.dot(weight,X) / np.expand_dims(summed_weight, 1)  # the normalized vectors
+
+
+
+    return shifted_pts
+
+
+
+
+
+def bin_points(X, bin_size, min_bin_freq):
+    bin_sizes = defaultdict(int)
+    for point in X:
+        binned_point = np.cast[np.int32](point / bin_size)
+        bin_sizes[tuple(binned_point)] += 1
+
+    bin_seeds = np.array([point for freq,point in enumerate(bin_sizes) if freq >= min_bin_freq], dtype=np.float32)
+    bin_seeds = bin_seeds * bin_size
+    return bin_seeds
+##############

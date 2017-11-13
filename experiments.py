@@ -241,7 +241,7 @@ def test_hist_task(cluster_model,labels_counter,HOT_matrix):
             #hist = normalize(np.array(hist),norm='l1')
             tasks_dict[str(i_task)].append(hist)
 
-    data_organizer.save_matrix_pickle(tasks_dict,'C:/Users/dario.dotti/Documents/bow_experiment_data/test_PECS/tasks_dict.txt')
+    #data_organizer.save_matrix_pickle(tasks_dict,'C:/Users/dario.dotti/Documents/bow_experiment_data/test_PECS/tasks_dict.txt')
 
     ## labels for the tasks
     labels = []
@@ -275,8 +275,8 @@ def experiment_video():
 
 
     HOT_matrix_5_tasks = np.array(data_organizer.load_matrix_pickle('C:/Users/dario.dotti/Documents/bow_experiment_data/test_PECS/hot_spatial_grid_4x4x3_5_tasks_2secWindow_without_outliers.txt')).tolist()
-    HOT_matrix_6_tasks = np.array(data_organizer.load_matrix_pickle(
-        'C:/Users/dario.dotti/Documents/bow_experiment_data/test_PECS/hot_spatial_grid_4x4x3_6_tasks_2secWindow_without_outliers.txt')).tolist()
+    HOT_matrix_6_tasks = np.array(data_organizer.load_matrix_pickle('C:/Users/dario.dotti/Documents/hot_spatial_grid_4x4x3_6_tasks_2secWindow.txt'
+        )).tolist()  # 'C:/Users/dario.dotti/Documents/bow_experiment_data/test_PECS/hot_spatial_grid_4x4x3_6_tasks_2secWindow_without_outliers.txt'
     #HOT_matrix_6_tasks = np.array(data_organizer.load_matrix_pickle('C:/Users/dario.dotti/Documents/bow_experiment_data/hot_spatial_grid_4x4x3_6_tasks_2secWindow.txt')).tolist()
     #HOT_matrix_5_tasks = np.array(data_organizer.load_matrix_pickle('C:/Users/dario.dotti/Documents/bow_experiment_data/hot_spatial_grid_4x4x3_5_tasks_2secWindow.txt')).tolist()
 
@@ -299,6 +299,7 @@ def experiment_video():
                 new_subject.append(task)
         HOT_matrix_6_tasks.append(new_subject)
 
+    #data_organizer.save_matrix_pickle(HOT_matrix_6_tasks,'C:/Users/dario.dotti/Documents/bow_experiment_data/final_HOT_matrix_6_tasks.txt')
 
     ##transform matrix for clustering
     HOT_matrix_for_cluster = []

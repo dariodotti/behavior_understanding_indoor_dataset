@@ -3,6 +3,9 @@ import cv2
 import numpy as np
 import matplotlib.path as mplPath
 import matplotlib.pyplot as plt
+import random
+from scipy.spatial.distance import cdist, pdist
+from sklearn.cluster import MeanShift,KMeans,SpectralClustering
 
 import img_processing
 
@@ -57,7 +60,6 @@ def create_grid(xs, ys, size_mask, directions, scene):
                       [up_right_corner[0] - size_mask, up_right_corner[1]],
                       up_right_corner,
                       [up_right_corner[0], up_right_corner[1] + size_mask]]))
-
 
 
     elif first_chunck_direction == -135:
@@ -149,12 +151,12 @@ def create_grid(xs, ys, size_mask, directions, scene):
     list_rect = [first_rect]#,side_rect,second_side_rect]
 
 
-    # for rect in list_rect:
-    #     cv2.rectangle(scene, (int(rect.vertices[1][0]), int(rect.vertices[1][1])),
-    #                   (int(rect.vertices[3][0]), int(rect.vertices[3][1])), (0, 0, 0))
-    #
-    # for i_p, p in enumerate(xrange(len(xs))):
-    #     cv2.circle(scene, (int(xs[p]), int(ys[p]) ), 1, (255, 0, 0), -1)
+    for rect in list_rect:
+        cv2.rectangle(scene, (int(rect.vertices[1][0]), int(rect.vertices[1][1])),
+                      (int(rect.vertices[3][0]), int(rect.vertices[3][1])), (0, 0, 0))
+
+    for i_p, p in enumerate(xrange(len(xs))):
+        cv2.circle(scene, (int(xs[p]), int(ys[p]) ), 1, (255, 0, 0), -1)
     #
     # cv2.imshow('scene', scene)
     # cv2.waitKey(0)
@@ -190,7 +192,7 @@ def createLineIterator(P1, P2, img):
    dYa = np.abs(dY)
 
    #predefine numpy array for output based on distance between points
-   itbuffer = np.empty(shape=(np.maximum(dYa,dXa),3),dtype=np.float32)
+   itbuffer = np.empty(shape=(np.maximum(int(dYa),int(dXa)),3),dtype=np.float32)
    itbuffer.fill(np.nan)
 
    #Obtain coordinates along the line using a form of Bresenham's algorithm
@@ -272,8 +274,8 @@ def transform_traj_in_pixel_activation(rect_list, x_untilNow, y_untilNow, size_m
                 y = points_in_mask[i][1] - origin_mask[1]
 
                 ##get all pixels lying on the line that pass between two points
-                points_on_line = createLineIterator(np.array([[x], [y]]), \
-                                                                np.array([[x_1], [y_1]]), mask_img)
+                points_on_line = createLineIterator(np.array([[int(x)], [int(y)]]), \
+                                                                np.array([[int(x_1)], [int(y_1)]]), mask_img)
 
                 ##fill these pixel values with average distance between two points
                 for p in points_on_line:
@@ -294,14 +296,14 @@ def transform_traj_in_pixel_activation(rect_list, x_untilNow, y_untilNow, size_m
 
                     ##real value
                     mask_matrix[int(p[1]), int(p[0])] = distance_metric_value
-                    # print distance_metric_value
+
                     if int(p[1]) + 1 < size_mask and int(p[0]) +  1 < size_mask:
                         if int(p[0]) - 1 <0:
                             p[0] = 1
                         if int(p[1]) - 1 <0:
                             p[1] = 1
 
-                        ##right
+                        #right
                         mask_matrix[int(p[1]) + 1, int(p[0])] = distance_metric_value
                         ##left
                         mask_matrix[int(p[1]) - 1, int(p[0])] = distance_metric_value
@@ -314,8 +316,8 @@ def transform_traj_in_pixel_activation(rect_list, x_untilNow, y_untilNow, size_m
 
 
             ##if we want to display on img
-            #plt.imshow(mask_matrix.squeeze(), cmap=plt.cm.gray)
-            #plt.show()
+            # plt.imshow(mask_matrix.squeeze(), cmap=plt.cm.gray)
+            # plt.show()
 
         else:
             mask_matrix = mask_matrix.reshape((1, -1))
@@ -337,67 +339,330 @@ def transform_traj_in_pixel_activation(rect_list, x_untilNow, y_untilNow, size_m
     return traj_features,orig_points
 
 
+def transform_traj_in_pixel_activation_temporal(rect, x_untilNow, y_untilNow, size_mask, step):
+
+    points_in_mask = []
+    map(lambda ci: points_in_mask.append([int(x_untilNow[ci]), int(y_untilNow[ci])]) if rect.contains_point(
+        (int(x_untilNow[ci]), int(y_untilNow[ci]))) else False, xrange(len(x_untilNow)))
+
+    origin_mask = [rect.vertices[1][0], rect.vertices[1][1]]
+
+    mask_img = np.zeros((size_mask, size_mask), dtype=np.uint8)
+    mask_matrix = np.zeros((size_mask, size_mask))
+
+    if len(points_in_mask) >= 2:
+        for i in xrange(len(points_in_mask) - 1):
+            distance_metric_value = np.sqrt(np.power(points_in_mask[i + 1][0] - points_in_mask[i][0], 2) + np.power(
+                points_in_mask[i + 1][1] - points_in_mask[i][1], 2)) / step
+
+
+            ##get all pixels lying on the line that pass between two points
+            points_on_line = createLineIterator(np.array([points_in_mask[i][0],points_in_mask[i][1]]), \
+                                                np.array([points_in_mask[i+1][0], points_in_mask[i+1][1]]), mask_img)
+
+            ##fill these pixel values with average distance between two points
+            for p in points_on_line:
+                ##if we want to display on img
+
+                mask_img[int(p[1]), int(p[0])] = 255
+                # # print distance_metric_value
+                # if int(p[1]) + 1 < size_mask - 1 and int(p[0]) < size_mask - 1:
+                #     ##right
+                #     mask_img[int(p[1]) + 1, int(p[0])] = 255
+                #     ##left
+                #     mask_img[int(p[1]) - 1, int(p[0])] = 255
+                #     ##up
+                #     mask_img[int(p[1]), int(p[0]) - 1] = 255
+                #     ##down
+                #     mask_img[int(p[1]), int(p[0]) + 1] = 255
+
+
+                ##real value
+                mask_matrix[int(p[1]), int(p[0])] = distance_metric_value
+                # print distance_metric_value
+                if int(p[1]) + 1 < size_mask and int(p[0]) + 1 < size_mask:
+                    if int(p[0]) - 1 < 0:
+                        p[0] = 1
+                    if int(p[1]) - 1 < 0:
+                        p[1] = 1
+
+                    ##right
+                    mask_matrix[int(p[1]) + 1, int(p[0])] = distance_metric_value
+                    ##left
+                    mask_matrix[int(p[1]) - 1, int(p[0])] = distance_metric_value
+                    ##up
+                    mask_matrix[int(p[1]), int(p[0]) - 1] = distance_metric_value
+                    ##down
+                    mask_matrix[int(p[1]), int(p[0]) + 1] = distance_metric_value
+
+        ##if we want to display on img
+        # plt.imshow(mask_matrix.squeeze(), cmap=plt.cm.gray)
+        # plt.show()
+
+    else:
+        mask_matrix = mask_matrix.reshape((1, -1))
+
+    return mask_matrix.reshape((1,-1)),mask_img.reshape((1,-1))
+
+
+
+def create_vector_activations_layer_2(directions, list_activations, list_orig_points):
+
+
+    matrix_activation_layer2 = np.zeros((9,len(list_activations[0])))
+    matrix_orig_points_layer2 = np.zeros((9,list_orig_points[0].shape[1]))
+
+    ##the first position is determined by the direction
+    first_dir = directions[0]
+    if first_dir == 0:
+        matrix_activation_layer2[5] = list_activations[0]
+        matrix_orig_points_layer2[5] = list_orig_points[0]
+
+    elif first_dir == 45:
+        matrix_activation_layer2[8] = list_activations[0]
+        matrix_orig_points_layer2[8] = list_orig_points[0]
+
+    elif first_dir == 90:
+        matrix_activation_layer2[7] = list_activations[0]
+        matrix_orig_points_layer2[7] = list_orig_points[0]
+
+    elif first_dir == 135:
+        matrix_activation_layer2[6] = list_activations[0]
+        matrix_orig_points_layer2[6] = list_orig_points[0]
+
+    elif first_dir == 180 or first_dir == -180:
+        matrix_activation_layer2[3] = list_activations[0]
+        matrix_orig_points_layer2[3] = list_orig_points[0]
+
+    elif first_dir == -45:
+        matrix_activation_layer2[2] = list_activations[0]
+        matrix_orig_points_layer2[2] = list_orig_points[0]
+
+    elif first_dir == -90:
+        matrix_activation_layer2[1] = list_activations[0]
+        matrix_orig_points_layer2[1] = list_orig_points[0]
+
+    elif first_dir == -135:
+        matrix_activation_layer2[0] = list_activations[0]
+        matrix_orig_points_layer2[0] = list_orig_points[0]
+
+    ##whereas the second position in the grid is always the center
+    matrix_activation_layer2[4] = list_activations[1]
+    matrix_orig_points_layer2[4] = list_orig_points[1]
+
+    ## the third position is again determined by the direction
+    third_dir = directions[2]
+
+    if third_dir == 0:
+        matrix_activation_layer2[3] = list_activations[2]
+        matrix_orig_points_layer2[3] = list_orig_points[2]
+
+    elif third_dir == 45:
+        matrix_activation_layer2[0] = list_activations[2]
+        matrix_orig_points_layer2[0] = list_orig_points[2]
+
+    elif third_dir == 90:
+        matrix_activation_layer2[1] = list_activations[2]
+        matrix_orig_points_layer2[1] = list_orig_points[2]
+
+    elif third_dir == 135:
+        matrix_activation_layer2[2] = list_activations[2]
+        matrix_orig_points_layer2[2] = list_orig_points[2]
+
+    elif third_dir == 180 or first_dir == -180:
+        matrix_activation_layer2[5] = list_activations[2]
+        matrix_orig_points_layer2[5] = list_orig_points[2]
+
+    elif third_dir == -45:
+        matrix_activation_layer2[6] = list_activations[2]
+        matrix_orig_points_layer2[6] = list_orig_points[2]
+
+    elif third_dir == -90:
+        matrix_activation_layer2[7] = list_activations[2]
+        matrix_orig_points_layer2[7] = list_orig_points[2]
+
+    elif third_dir == -135:
+        matrix_activation_layer2[8] = list_activations[2]
+        matrix_orig_points_layer2[8] = list_orig_points[2]
+
+
+    matrix_activation_layer2 = matrix_activation_layer2.reshape((1,len(list_activations[0])*9))
+    matrix_orig_points_layer2 = matrix_orig_points_layer2.reshape((1,list_orig_points[0].shape[1]*9))
+
+    return matrix_activation_layer2,matrix_orig_points_layer2
+
+
+def create_vector_for_bayesian_probability_with_directions(activation_labels, directions, history):
+
+    vector_bayes = [None,None,None,None,None,None,None,None,None]
+
+
+    if history == 3:
+
+        ##the first position is determined by the direction
+        first_dir = directions[0]
+        if first_dir == 0:
+            vector_bayes[5] = str(activation_labels[0])
+            vector_bayes[4] = str(activation_labels[1]) + 'DXSX'
+
+        elif first_dir == 45:
+            vector_bayes[8] = str(activation_labels[0])
+            vector_bayes[4] = str(activation_labels[1]) + 'DXSX'
+
+        elif first_dir == 90:
+            vector_bayes[7] = str(activation_labels[0])
+            vector_bayes[4] = str(activation_labels[1]) + 'DXSX'
+
+        elif first_dir == 135:
+            vector_bayes[6] = str(activation_labels[0])
+            vector_bayes[4] = str(activation_labels[1]) + 'SXDX'
+
+        elif first_dir == 180 or first_dir == -180:
+            vector_bayes[3] = str(activation_labels[0])
+            vector_bayes[4] = str(activation_labels[1]) + 'SXDX'
+
+        elif first_dir == -45:
+            vector_bayes[2] = str(activation_labels[0])
+            vector_bayes[4] = str(activation_labels[1]) + 'DXSX'
+
+        elif first_dir == -90:
+            vector_bayes[1] = str(activation_labels[0])
+            vector_bayes[4] = str(activation_labels[1]) + 'SXDX'
+
+        elif first_dir == -135:
+            vector_bayes[0] = str(activation_labels[0])
+            vector_bayes[4] = str(activation_labels[1]) + 'SXDX'
+
+        ##whereas the second position in the grid is always the center
+        #vector_bayes[4] = activation_labels[1]
+
+        third_dir = directions[2]
+
+        if third_dir == 0:
+            vector_bayes[3] = str(activation_labels[2])
+
+        elif third_dir == 45:
+            vector_bayes[0] = str(activation_labels[2])
+
+        elif third_dir == 90:
+            vector_bayes[1] = str(activation_labels[2])
+
+        elif third_dir == 135:
+            vector_bayes[2] = str(activation_labels[2])
+
+        elif third_dir == 180 or third_dir == -180:
+            vector_bayes[5] = str(activation_labels[2])
+
+        elif third_dir == -45:
+            vector_bayes[6] = str(activation_labels[2])
+
+        elif third_dir == -90:
+            vector_bayes[7] = str(activation_labels[2])
+
+        elif third_dir == -135:
+            vector_bayes[8] = str(activation_labels[2])
+
+
+    return vector_bayes
+
+
+def create_vector_for_bayesian_probability(activation_labels, directions, history):
+
+    vector_bayes = [None,None,None,None,None,None,None,None,None]
+
+
+    if history == 3:
+
+        ##the first position is determined by the direction
+        first_dir = directions[0]
+        if first_dir == 0:
+            vector_bayes[5] = str(activation_labels[0])
+
+        elif first_dir == 45:
+            vector_bayes[8] = str(activation_labels[0])
+
+        elif first_dir == 90:
+            vector_bayes[7] = str(activation_labels[0])
+
+        elif first_dir == 135:
+            vector_bayes[6] = str(activation_labels[0])
+
+        elif first_dir == 180 or first_dir == -180:
+            vector_bayes[3] = str(activation_labels[0])
+
+        elif first_dir == -45:
+            vector_bayes[2] = str(activation_labels[0])
+
+        elif first_dir == -90:
+            vector_bayes[1] = str(activation_labels[0])
+
+        elif first_dir == -135:
+            vector_bayes[0] = str(activation_labels[0])
+
+        ##whereas the second position in the grid is always the center
+        vector_bayes[4] = str(activation_labels[1])
+
+        third_dir = directions[2]
+
+        if third_dir == 0:
+            vector_bayes[3] = str(activation_labels[2])
+
+        elif third_dir == 45:
+            vector_bayes[0] = str(activation_labels[2])
+
+        elif third_dir == 90:
+            vector_bayes[1] = str(activation_labels[2])
+
+        elif third_dir == 135:
+            vector_bayes[2] = str(activation_labels[2])
+
+        elif third_dir == 180 or third_dir == -180:
+            vector_bayes[5] = str(activation_labels[2])
+
+        elif third_dir == -45:
+            vector_bayes[6] = str(activation_labels[2])
+
+        elif third_dir == -90:
+            vector_bayes[7] = str(activation_labels[2])
+
+        elif third_dir == -135:
+            vector_bayes[8] = str(activation_labels[2])
+
+
+    return vector_bayes
+
+
 def sigmoid_function(x):
     return 1 / (1 + np.exp(-x))
 
 
-def AE_reconstruction_level1(raw_features,AE_weights_level_1):
+def determine_number_k_kMeans(matrix_activations_data_l1):
+    #matrix_activations_data_l1 = np.array(random.sample(matrix_activations_data_l1,10000))
+    #matrix_activations_data_l1 = matrix_activations_data_l1[:10000]
+    import warnings
+    warnings.filterwarnings("ignore")
 
-    hd_weights = AE_weights_level_1[0][0]
-    bias_1 = AE_weights_level_1[1]
-    bias_2 = AE_weights_level_1[2]
+    ##Determine number of K
+    ##variance intra cluster
+    k_range = range(2, 103, 20)
+    #k_range = range(2, 21, 2)
+    print k_range
 
-    ##compute AE reconstruction
-    hd1_space = np.dot(raw_features, hd_weights)
-    activations = sigmoid_function(hd1_space+ bias_1)
+    k_means_var = [KMeans(n_clusters=k,n_jobs=-1).fit(matrix_activations_data_l1) for k in k_range]
 
+    ###save or load already trained cluster model #####
+    # img_proc.save_matrix_pickle(k_means_var, 'C:/Users/dario.dotti/Documents/data_for_vocabulary/camera017/traj_pixel_activation/bayesian_net/choose_k_means.txt' )
+    # k_means_var = img_proc.load_matrix_pickle(
+    #     'C:/Users/dario.dotti/Documents/data_for_vocabulary/camera017/traj_pixel_activation/bayesian_net/choose_k_means.txt')
+    #####
+    centroids = [X.cluster_centers_ for X in k_means_var]
 
-    rec_space = np.dot(activations, hd_weights.T)
-    rec = sigmoid_function(rec_space+ bias_2)
+    k_euclid = [cdist(matrix_activations_data_l1, cent, 'euclidean') for cent in centroids]
+    dist = [np.min(ke, axis=1) for ke in k_euclid]
+    wcss = [sum(d ** 2) for d in dist]
+    tss = sum(pdist(matrix_activations_data_l1) ** 2) / matrix_activations_data_l1.shape[0]
 
+    bss = tss - wcss
 
-
-    img_size = 18
-    ##calculate rec error over the data
-    rec_mse_local = []
-    map(lambda (i, row):rec_mse_local.append( np.sum(np.power(row-raw_features[i],2))),enumerate(rec))
-    print 'all data mse: ', np.sum(rec_mse_local)/len(rec)
-
-
-    #print count
-    ##visualize original vs reconstruction image
-
-    for i, row in enumerate(rec):
-        #if np.sum(np.power(row-raw_features[i],2)) < 3: continue
-
-        fig = plt.figure()
-
-        temp_orig = raw_features[i].reshape((img_size,img_size))
-        ##print mean pixel value
-        # a = np.where(temp_orig > 0.001)
-        # mean_orig = 0
-        # for i_c in range(0,len(a[0])):
-        #     mean_orig = mean_orig + temp_orig[a[0][i_c], a[1][i_c]]
-        # print mean_orig/len(a[0])
-        ####
-
-        img_orig = raw_features[i].reshape((img_size, img_size, 1))
-        a = fig.add_subplot(1, 2, 1)
-        a.set_title('original')
-        imgplot = plt.imshow(img_orig.squeeze(), cmap=plt.cm.gray)
-
-        temp = row.reshape((img_size, img_size))
-        ## print mean pixel value
-        a = np.where(temp > 0.1)
-        mean_rec = 0
-        for i_c in range(0, len(a[0])):
-            mean_rec = mean_rec+ temp[a[0][i_c], a[1][i_c]]
-        print mean_rec/len(a[0])
-        ###
-
-        img_rec = row.reshape((img_size, img_size, 1))
-        a = fig.add_subplot(1, 2, 2)
-        a.set_title('reconstruction')
-        imgplot = plt.imshow(img_rec.squeeze(), cmap=plt.cm.gray)
-
-        plt.show()
+    plt.plot(k_range, bss)
+    plt.show()

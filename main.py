@@ -12,7 +12,7 @@ import video_traj
 
 def get_video_features():
     #read and parse file with recorded data
-    with open('C:/Users/dario.dotti/Documents/Datasets/my_dataset/wandering_dataset_um/file_to_analyze_5_labels.txt','r') as f:
+    with open('C:/Users/dario.dotti/Documents/Datasets/my_dataset/wandering_dataset_um/file_to_analyze_6_labels_ordered.txt','r') as f:#
         files = f.read().split('\n')
         print 'number of recorded files: '+str(len(files))
 
@@ -26,15 +26,15 @@ def get_video_features():
 
         traj_features = video_traj.feature_extraction_video_traj(file)
 
+        matrix_allData_HOT.append(traj_features[1])
+        # if len(matrix_allData_HOT)>0:
+        #     matrix_allData_HOT = np.vstack((matrix_allData_HOT,traj_features[1]))
+        # else:
+        #     matrix_allData_HOT = np.array(traj_features[1])
 
-
-        if len(matrix_allData_HOT)>0:
-            matrix_allData_HOT = np.vstack((matrix_allData_HOT,traj_features[1]))
-        else:
-            matrix_allData_HOT = np.array(traj_features[1])
-
+    print len(matrix_allData_HOT)
     #scipy.io.savemat('C:/Users/dario.dotti/Documents/hot_spatial_grid_4x4.mat',mdict={'spatial_grid_4x4': matrix_allData_HOT})
-    my_data_org.save_matrix_pickle(matrix_allData_HOT,'C:/Users/dario.dotti/Documents/hot_spatial_grid_4x4x3_5_tasks_2secWindow_without_outliers.txt')
+    my_data_org.save_matrix_pickle(matrix_allData_HOT,'C:/Users/dario.dotti/Documents/data_for_personality_exp/after_data_cleaning/skeleton_data_in_tasks_time_slices_30fps_ordered') #
 
 
 def get_ambient_sensor_features():

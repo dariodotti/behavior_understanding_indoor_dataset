@@ -3,6 +3,8 @@ import numpy as np
 from multiprocessing.dummy import Pool as ThreadPool
 from datetime import datetime, timedelta
 import cPickle
+import cv2
+import matplotlib.path as mplPath
 
 __max_depth_value = 0
 __min_depth_value = 0
@@ -171,6 +173,8 @@ def load_matrix_pickle(path):
 
     with open(path, 'rb') as handle:
         file = cPickle.load(handle)
+
+    print 'file_loaded'
     return file
 
 
@@ -179,3 +183,48 @@ def save_matrix_pickle(file,path):
     with open(path, 'wb') as handle:
         cPickle.dump(file,handle,protocol=2)
 
+
+def get_areas_boxes(scene):
+    #How to draw polygons: 1 left bottom
+                        # 2 left top
+                        # 3 right top
+                        # 4 right bottom
+
+    scene_shape = np.array(scene).shape
+
+    box_right = mplPath.Path(np.array([[int(scene_shape[1]*0.66),scene_shape[0]], [int(scene_shape[1]*0.66),0], [scene_shape[1],0], [scene_shape[1], scene_shape[0]]]))
+    box_left = mplPath.Path(np.array([[0,scene_shape[0]], [0, 0], [int(scene_shape[1]*0.33),0], [int(scene_shape[1]*0.33), scene_shape[0]]]))
+
+    box_center_far = mplPath.Path(np.array([[int(scene_shape[1]*0.33),scene_shape[0]], [int(scene_shape[1]*0.33),0], [int(scene_shape[1]*0.66),0], [int(scene_shape[1]*0.66), scene_shape[0]]]))
+    box_center_close = mplPath.Path(np.array([[int(scene_shape[1]*0.33),scene_shape[0]], [int(scene_shape[1]*0.33),0], [int(scene_shape[1]*0.66),0], [int(scene_shape[1]*0.66), scene_shape[0]]]))
+
+    cabinet_left = mplPath.Path(np.array([[0,scene_shape[0]], [0, int(scene_shape[0]*0.55)], [int(scene_shape[1]*0.33),int(scene_shape[0]*0.55)], [int(scene_shape[1]*0.33), scene_shape[0]]]))
+    cabinet_right = mplPath.Path(np.array([[int(scene_shape[1]*0.66),scene_shape[0]], [int(scene_shape[1]*0.66),int(scene_shape[0]*0.5)], [scene_shape[1],int(scene_shape[0]*0.5)], [scene_shape[1], scene_shape[0]]]))
+
+    boxes = [box_center_close, cabinet_left, box_left, box_center_far,  box_right, cabinet_right]
+
+    ##check poly are correct
+    # fig = plt.figure()
+    # ax = fig.add_subplot(111)
+    # patch = patches.PathPatch(cabinet_left, facecolor='orange', lw=2)
+    # ax.add_patch(patch)
+    #
+    # ax.set_xlim(0,scene.shape[1])
+    # ax.set_ylim(0,scene.shape[0])
+    #
+    # plt.show()
+    ###
+
+
+    ##draw patches
+    for rect in boxes:
+        cv2.rectangle(scene, (int(rect.vertices[1][0]), int(rect.vertices[1][1])),
+                      (int(rect.vertices[3][0]), int(rect.vertices[3][1])), (0, 0, 0))
+    #
+    #cv2.imshow('ciao',scene)
+    #cv2.waitKey(0)
+
+    zs = [2.4, 2.4, 3.2, 4.5, 4.3, 3.2]
+
+
+    return boxes,zs,scene
