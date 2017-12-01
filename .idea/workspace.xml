@@ -2,16 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4dc86e41-93fe-4a0c-9d5e-090566dd67bf" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/AE_rec.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/laban_posture.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/realtime_posture_extr.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/old_main_abd_ict4life.py" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AE_rec.py" afterPath="$PROJECT_DIR$/AE_rec.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data_organizer.py" afterPath="$PROJECT_DIR$/data_organizer.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/experiments.py" afterPath="$PROJECT_DIR$/experiments.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hierarchical_ae_learning_methods.py" afterPath="$PROJECT_DIR$/hierarchical_ae_learning_methods.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/img_processing.py" afterPath="$PROJECT_DIR$/img_processing.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laban_posture.py" afterPath="$PROJECT_DIR$/laban_posture.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/realtime_posture_extr.py" afterPath="$PROJECT_DIR$/realtime_posture_extr.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/realtime_traj_dict.py" afterPath="$PROJECT_DIR$/realtime_traj_dict.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/video_traj.py" afterPath="$PROJECT_DIR$/video_traj.py" />
     </list>
@@ -36,27 +34,87 @@
       <file leaf-file-name="AE_rec.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AE_rec.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1556">
-              <caret line="658" column="105" lean-forward="true" selection-start-line="658" selection-start-column="101" selection-end-line="658" selection-end-column="105" />
+            <state relative-caret-position="7021">
+              <caret line="795" column="17" lean-forward="false" selection-start-line="795" selection-start-column="17" selection-end-line="795" selection-end-column="17" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
                 <element signature="e#708#2755#0" expanded="false" />
                 <element signature="e#2848#4897#0" expanded="false" />
                 <element signature="e#5023#8192#0" expanded="false" />
+                <element signature="e#8327#11728#0" expanded="false" />
                 <element signature="e#19915#22874#0" expanded="false" />
-                <element signature="e#27944#28891#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="data_organizer.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data_organizer.py">
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="433">
-              <caret line="229" column="25" lean-forward="true" selection-start-line="229" selection-start-column="11" selection-end-line="229" selection-end-column="25" />
+            <state relative-caret-position="306">
+              <caret line="26" column="49" lean-forward="false" selection-start-line="26" selection-start-column="49" selection-end-line="26" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="experiments.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/experiments.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3417">
+              <caret line="276" column="154" lean-forward="false" selection-start-line="276" selection-start-column="130" selection-end-line="276" selection-end-column="154" />
               <folding>
-                <element signature="e#0#22#0" expanded="true" />
+                <element signature="e#421#2282#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test_BOW_deliverable.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test_BOW_deliverable.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="hierarchical_ae_learning_methods.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hierarchical_ae_learning_methods.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="595">
+              <caret line="44" column="4" lean-forward="false" selection-start-line="44" selection-start-column="4" selection-end-line="44" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="video_traj.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/video_traj.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="6426">
+              <caret line="388" column="39" lean-forward="false" selection-start-line="388" selection-start-column="39" selection-end-line="388" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="realtime_traj_dict.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/realtime_traj_dict.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="410">
+              <caret line="463" column="0" lean-forward="false" selection-start-line="463" selection-start-column="0" selection-end-line="463" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+                <element signature="e#1469#8548#0" expanded="false" />
+                <element signature="e#4765#5076#0" expanded="false" />
+                <element signature="e#6502#7228#0" expanded="false" />
+                <element signature="e#12092#12330#0" expanded="false" />
+                <element signature="e#15011#16768#0" expanded="false" />
+                <element signature="e#16805#17209#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -65,38 +123,45 @@
       <file leaf-file-name="img_processing.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/img_processing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="340" column="0" lean-forward="false" selection-start-line="340" selection-start-column="0" selection-end-line="340" selection-end-column="0" />
+            <state relative-caret-position="259">
+              <caret line="32" column="4" lean-forward="false" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="4" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
-                <element signature="e#5150#7479#0" expanded="false" />
-                <element signature="e#7542#10168#0" expanded="false" />
-                <element signature="e#10229#10667#0" expanded="false" />
+                <element signature="e#5158#7487#0" expanded="false" />
+                <element signature="e#7550#10176#0" expanded="false" />
+                <element signature="e#10237#10675#0" expanded="false" />
+                <element signature="e#11473#12117#0" expanded="false" />
+                <marker date="1512045566116" expanded="false" signature="12162:12507" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="realtime_posture_extr.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="realtime_posture_extr.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/realtime_posture_extr.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="449">
-              <caret line="232" column="8" lean-forward="false" selection-start-line="232" selection-start-column="8" selection-end-line="232" selection-end-column="8" />
+            <state relative-caret-position="395">
+              <caret line="494" column="0" lean-forward="false" selection-start-line="494" selection-start-column="0" selection-end-line="494" selection-end-column="0" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
-                <element signature="e#321#812#0" expanded="false" />
-                <element signature="e#16952#17188#0" expanded="false" />
+                <element signature="e#369#860#0" expanded="false" />
+                <element signature="e#13749#14268#0" expanded="false" />
+                <element signature="e#19729#19965#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="experiments.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/experiments.py">
+      <file leaf-file-name="laban_posture.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/laban_posture.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="43" />
-              <folding />
+            <state relative-caret-position="187">
+              <caret line="11" column="74" lean-forward="false" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="74" />
+              <folding>
+                <element signature="e#788#1310#0" expanded="false" />
+                <element signature="e#12523#13920#0" expanded="false" />
+                <marker date="1512115225014" expanded="true" signature="10949:11252" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -112,11 +177,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>bow</find>
-      <find>concatenated_matrix</find>
-      <find>hot</find>
-      <find>get_coordinate_points</find>
-      <find>Mean</find>
       <find>my_ms</find>
       <find>video_clustering_fit</find>
       <find>example_for_every_cluster_center</find>
@@ -142,6 +202,11 @@
       <find>fit</find>
       <find>hid_unit_activation_allLayers</find>
       <find>decomposition</find>
+      <find>deter</find>
+      <find>extract_arms_pos</find>
+      <find>cluster_activation_allLayers</find>
+      <find>print</find>
+      <find>hot</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -165,16 +230,17 @@
         <option value="$PROJECT_DIR$/demo_pecs_review.py" />
         <option value="$PROJECT_DIR$/experiments.py" />
         <option value="$PROJECT_DIR$/ambient_sensors.py" />
-        <option value="$PROJECT_DIR$/hierarchical_ae_learning_methods.py" />
-        <option value="$PROJECT_DIR$/realtime_traj_dict.py" />
-        <option value="$PROJECT_DIR$/laban_posture.py" />
-        <option value="$PROJECT_DIR$/img_processing.py" />
-        <option value="$PROJECT_DIR$/video_traj.py" />
-        <option value="$PROJECT_DIR$/main.py" />
-        <option value="$PROJECT_DIR$/AE_rec.py" />
         <option value="$PROJECT_DIR$/realtime_simple_features_extraction.py" />
+        <option value="$PROJECT_DIR$/hierarchical_ae_learning_methods.py" />
+        <option value="$PROJECT_DIR$/img_processing.py" />
+        <option value="$PROJECT_DIR$/AE_rec.py" />
+        <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/video_traj.py" />
         <option value="$PROJECT_DIR$/data_organizer.py" />
         <option value="$PROJECT_DIR$/realtime_posture_extr.py" />
+        <option value="$PROJECT_DIR$/laban_posture.py" />
+        <option value="$PROJECT_DIR$/realtime_traj_dict.py" />
+        <option value="$PROJECT_DIR$/test_BOW_deliverable.py" />
       </list>
     </option>
   </component>
@@ -220,7 +286,6 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -235,13 +300,14 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Motion_Personality" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../traj_dictionary" />
   </component>
-  <component name="RunManager" selected="Python.realtime_posture_extr">
+  <component name="RunManager" selected="Python.realtime_traj_dict">
     <configuration default="false" name="AE_rec" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -276,23 +342,6 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="video_traj" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="behaviorUnderstanding_indoor_dataset" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/video_traj.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
     <configuration default="false" name="realtime_posture_extr" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -310,7 +359,7 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="img_processing" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration default="false" name="laban_posture" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -322,7 +371,24 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="behaviorUnderstanding_indoor_dataset" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/img_processing.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/laban_posture.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="test_BOW_deliverable" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="behaviorUnderstanding_indoor_dataset" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_BOW_deliverable.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -482,17 +548,17 @@
       <item index="0" class="java.lang.String" itemvalue="Python.realtime_traj_dict" />
       <item index="1" class="java.lang.String" itemvalue="Python.AE_rec" />
       <item index="2" class="java.lang.String" itemvalue="Python.main" />
-      <item index="3" class="java.lang.String" itemvalue="Python.video_traj" />
-      <item index="4" class="java.lang.String" itemvalue="Python.realtime_posture_extr" />
-      <item index="5" class="java.lang.String" itemvalue="Python.img_processing" />
+      <item index="3" class="java.lang.String" itemvalue="Python.realtime_posture_extr" />
+      <item index="4" class="java.lang.String" itemvalue="Python.laban_posture" />
+      <item index="5" class="java.lang.String" itemvalue="Python.test_BOW_deliverable" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.realtime_posture_extr" />
-        <item index="1" class="java.lang.String" itemvalue="Python.AE_rec" />
-        <item index="2" class="java.lang.String" itemvalue="Python.main" />
-        <item index="3" class="java.lang.String" itemvalue="Python.img_processing" />
-        <item index="4" class="java.lang.String" itemvalue="Python.video_traj" />
+        <item index="0" class="java.lang.String" itemvalue="Python.test_BOW_deliverable" />
+        <item index="1" class="java.lang.String" itemvalue="Python.laban_posture" />
+        <item index="2" class="java.lang.String" itemvalue="Python.realtime_posture_extr" />
+        <item index="3" class="java.lang.String" itemvalue="Python.main" />
+        <item index="4" class="java.lang.String" itemvalue="Python.AE_rec" />
       </list>
     </recent_temporary>
   </component>
@@ -531,19 +597,19 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17973462" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11761158" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21364653" sideWeight="0.49758744" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42393735" sideWeight="0.51085645" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3914989" sideWeight="0.51568156" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32997763" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32997763" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40715882" sideWeight="0.49758744" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2785235" sideWeight="0.48914355" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.46308726" sideWeight="0.49758744" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.46308726" sideWeight="0.48431846" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32885906" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4261745" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4619687" sideWeight="0.49095297" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -558,19 +624,19 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42393735" sideWeight="0.51085645" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3914989" sideWeight="0.51568156" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32997763" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28747204" sideWeight="0.49758744" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.44966444" sideWeight="0.48914355" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18232661" sideWeight="0.49758744" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3557047" sideWeight="0.48431846" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32885906" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11881785" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11761158" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32997763" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.48434004" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.50223714" sideWeight="0.49095297" order="3" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -590,6 +656,38 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/test_BOW_deliverable.py</url>
+          <line>143</line>
+          <option name="timeStamp" value="595" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/AE_rec.py</url>
+          <line>801</line>
+          <option name="timeStamp" value="607" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/realtime_traj_dict.py</url>
+          <line>347</line>
+          <option name="timeStamp" value="620" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/test_BOW_deliverable.py</url>
+          <line>18</line>
+          <option name="timeStamp" value="623" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/test_BOW_deliverable.py</url>
+          <line>15</line>
+          <option name="timeStamp" value="624" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/realtime_traj_dict.py</url>
+          <line>463</line>
+          <option name="timeStamp" value="625" />
+        </line-breakpoint>
+      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
@@ -600,45 +698,11 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="387" />
+      <option name="time" value="626" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ambient_sensors.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="22" column="24" lean-forward="false" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="67" column="22" lean-forward="false" selection-start-line="67" selection-start-column="22" selection-end-line="67" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/video_traj.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img_processing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="305" column="0" lean-forward="false" selection-start-line="305" selection-start-column="0" selection-end-line="305" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-            <element signature="e#5150#7479#0" expanded="false" />
-            <element signature="e#7542#10168#0" expanded="false" />
-            <element signature="e#10229#10667#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/visualization.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -646,13 +710,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/old_main_abd_ict4life.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="49" column="18" lean-forward="false" selection-start-line="49" selection-start-column="18" selection-end-line="49" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/old_main_abd_ict4life.py" />
     <entry file="file://$PROJECT_DIR$/video_traj_old_dataset.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -687,9 +745,11 @@
           <caret line="305" column="0" lean-forward="false" selection-start-line="305" selection-start-column="0" selection-end-line="305" selection-end-column="0" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
-            <element signature="e#5150#7479#0" expanded="false" />
-            <element signature="e#7542#10168#0" expanded="false" />
-            <element signature="e#10229#10667#0" expanded="false" />
+            <element signature="e#5158#7487#0" expanded="false" />
+            <element signature="e#7550#10176#0" expanded="false" />
+            <element signature="e#10237#10675#0" expanded="false" />
+            <element signature="e#11473#12117#0" expanded="false" />
+            <marker date="1512045566116" expanded="false" signature="12162:12507" ph="..." />
           </folding>
         </state>
       </provider>
@@ -701,13 +761,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/old_main_abd_ict4life.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="49" column="18" lean-forward="false" selection-start-line="49" selection-start-column="18" selection-end-line="49" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/old_main_abd_ict4life.py" />
     <entry file="file://$PROJECT_DIR$/video_traj_old_dataset.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -807,13 +861,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/old_main_abd_ict4life.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="12" column="106" lean-forward="false" selection-start-line="12" selection-start-column="106" selection-end-line="12" selection-end-column="106" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/old_main_abd_ict4life.py" />
     <entry file="file://$PROJECT_DIR$/demo_pecs_review.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2839">
@@ -853,7 +901,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6188">
           <caret line="394" column="20" lean-forward="false" selection-start-line="394" selection-start-column="20" selection-end-line="394" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -885,120 +932,153 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hierarchical_ae_learning_methods.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="638" column="4" lean-forward="false" selection-start-line="638" selection-start-column="4" selection-end-line="638" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/realtime_simple_features_extraction.py" />
     <entry file="file://$PROJECT_DIR$/ambient_sensors.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="19" column="26" lean-forward="false" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
+        <state relative-caret-position="374">
+          <caret line="28" column="36" lean-forward="false" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/laban_posture.py">
+    <entry file="file://$USER_HOME$/AppData/Local/Continuum/Anaconda2/envs/my_new_env/Lib/site-packages/sklearn/decomposition/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/video_traj.py">
+    <entry file="file://$USER_HOME$/AppData/Local/Continuum/Anaconda2/envs/my_new_env/Lib/site-packages/sklearn/metrics/classification.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2345">
-          <caret line="148" column="69" lean-forward="true" selection-start-line="148" selection-start-column="69" selection-end-line="148" selection-end-column="69" />
-          <folding />
+        <state relative-caret-position="142">
+          <caret line="1114" column="0" lean-forward="false" selection-start-line="1114" selection-start-column="0" selection-end-line="1114" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Continuum/Anaconda2/envs/my_new_env/Lib/site-packages/sklearn/cluster/k_means_.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="703" column="6" lean-forward="false" selection-start-line="703" selection-start-column="6" selection-end-line="703" selection-end-column="6" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AE_rec.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1556">
-          <caret line="658" column="105" lean-forward="true" selection-start-line="658" selection-start-column="101" selection-end-line="658" selection-end-column="105" />
+        <state relative-caret-position="7021">
+          <caret line="795" column="17" lean-forward="false" selection-start-line="795" selection-start-column="17" selection-end-line="795" selection-end-column="17" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
             <element signature="e#708#2755#0" expanded="false" />
             <element signature="e#2848#4897#0" expanded="false" />
             <element signature="e#5023#8192#0" expanded="false" />
+            <element signature="e#8327#11728#0" expanded="false" />
             <element signature="e#19915#22874#0" expanded="false" />
-            <element signature="e#27944#28891#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/realtime_traj_dict.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding>
-            <element signature="e#1480#8559#0" expanded="false" />
-            <element signature="e#4776#5087#0" expanded="false" />
-            <element signature="e#6513#7239#0" expanded="false" />
-            <element signature="e#12234#14199#0" expanded="false" />
-            <element signature="e#14482#16239#0" expanded="false" />
-            <element signature="e#16276#16680#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="36" column="179" lean-forward="false" selection-start-line="36" selection-start-column="179" selection-end-line="36" selection-end-column="179" />
+        <state relative-caret-position="306">
+          <caret line="26" column="49" lean-forward="false" selection-start-line="26" selection-start-column="49" selection-end-line="26" selection-end-column="49" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/realtime_simple_features_extraction.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="52" lean-forward="true" selection-start-line="5" selection-start-column="52" selection-end-line="5" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img_processing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="340" column="0" lean-forward="false" selection-start-line="340" selection-start-column="0" selection-end-line="340" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-            <element signature="e#5150#7479#0" expanded="false" />
-            <element signature="e#7542#10168#0" expanded="false" />
-            <element signature="e#10229#10667#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/data_organizer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="229" column="25" lean-forward="true" selection-start-line="229" selection-start-column="11" selection-end-line="229" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-121">
+          <caret line="186" column="4" lean-forward="false" selection-start-line="186" selection-start-column="4" selection-end-line="186" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiments.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="43" />
+        <state relative-caret-position="3417">
+          <caret line="276" column="154" lean-forward="false" selection-start-line="276" selection-start-column="130" selection-end-line="276" selection-end-column="154" />
+          <folding>
+            <element signature="e#421#2282#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hierarchical_ae_learning_methods.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="44" column="4" lean-forward="false" selection-start-line="44" selection-start-column="4" selection-end-line="44" selection-end-column="4" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/video_traj.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6426">
+          <caret line="388" column="39" lean-forward="false" selection-start-line="388" selection-start-column="39" selection-end-line="388" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laban_posture.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="74" lean-forward="false" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="74" />
+          <folding>
+            <element signature="e#788#1310#0" expanded="false" />
+            <element signature="e#12523#13920#0" expanded="false" />
+            <marker date="1512115225014" expanded="true" signature="10949:11252" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/realtime_posture_extr.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="449">
-          <caret line="232" column="8" lean-forward="false" selection-start-line="232" selection-start-column="8" selection-end-line="232" selection-end-column="8" />
+        <state relative-caret-position="395">
+          <caret line="494" column="0" lean-forward="false" selection-start-line="494" selection-start-column="0" selection-end-line="494" selection-end-column="0" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
-            <element signature="e#321#812#0" expanded="false" />
-            <element signature="e#16952#17188#0" expanded="false" />
+            <element signature="e#369#860#0" expanded="false" />
+            <element signature="e#13749#14268#0" expanded="false" />
+            <element signature="e#19729#19965#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_BOW_deliverable.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/img_processing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="32" column="4" lean-forward="false" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+            <element signature="e#5158#7487#0" expanded="false" />
+            <element signature="e#7550#10176#0" expanded="false" />
+            <element signature="e#10237#10675#0" expanded="false" />
+            <element signature="e#11473#12117#0" expanded="false" />
+            <marker date="1512045566116" expanded="false" signature="12162:12507" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/realtime_traj_dict.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="410">
+          <caret line="463" column="0" lean-forward="false" selection-start-line="463" selection-start-column="0" selection-end-line="463" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+            <element signature="e#1469#8548#0" expanded="false" />
+            <element signature="e#4765#5076#0" expanded="false" />
+            <element signature="e#6502#7228#0" expanded="false" />
+            <element signature="e#12092#12330#0" expanded="false" />
+            <element signature="e#15011#16768#0" expanded="false" />
+            <element signature="e#16805#17209#0" expanded="false" />
           </folding>
         </state>
       </provider>

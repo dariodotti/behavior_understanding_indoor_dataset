@@ -787,7 +787,7 @@ def main():
 
     ###### Layer 1 #########
     #raw_features = data_organizer.load_matrix_pickle('C:/Users/dario.dotti/Documents/data_for_personality_exp/after_data_cleaning/posture_data/posture_shoulder_arms_3fps.txt')
-    AE_weights_level_1 = data_organizer.load_matrix_pickle('C:/Users/dario.dotti/Documents/data_for_personality_exp/after_data_cleaning/posture_data/upperBody/deep_AE_900_225_weights_008hd1_noNoise.txt')#625_weights_008hd1
+    AE_weights_level_1 = data_organizer.load_matrix_pickle('C:/Users/dario.dotti/Desktop/Hier_AE_deliverable/ae/head_joint_id1/144weights_l1_hd1002.txt')#'C:/Users/dario.dotti/Documents/data_for_personality_exp/after_data_cleaning/posture_data/upperBody/deep_AE_900_225_weights_008hd1_noNoise.txt')#625_weights_008hd1
 
 
     # ############
@@ -799,8 +799,8 @@ def main():
 
 
      ####Visually check weights
-    #plot_layers_l1(AE_weights_level_1[0],tied_weights=True)
-    #plt.show()
+    plot_layers_l1(AE_weights_level_1[0],tied_weights=True)
+    plt.show()
 
 
     #plt.show()

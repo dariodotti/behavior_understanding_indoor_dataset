@@ -12,8 +12,9 @@ import data_organizer as data_org
 
 kinect_max_distance=0
 subjectID = ''
-scene = np.zeros((414,512,3),dtype=np.uint8)
-scene += 255
+#scene = np.zeros((414,512,3),dtype=np.uint8)
+#scene += 255
+scene = cv2.imread('C:/Users/dario.dotti/Desktop/data_recordings_master/images/subject_20/1144.jpg')#'C:/Users/dario.dotti/Documents/Datasets/my_dataset/wandering_dataset_um/exp_scene_depth.jpg')
 
 def draw_joints_and_tracks(body_points,list_poly):
 
@@ -85,7 +86,7 @@ def draw_joints_and_tracks(body_points,list_poly):
             cv2.waitKey(0)
         else:
             cv2.imshow('lab',temp_ing)
-            cv2.waitKey(1)
+            cv2.waitKey(0)
 
 
 def xml_parser(path_to_file):
@@ -187,7 +188,7 @@ def set_subject(subject):
 
 def org_data_different_tasks(skeleton_data):
     print subjectID
-    file_AS = 'C:/Users/dario.dotti/Documents/Datasets/my_dataset/wandering_dataset_um/binary/18-10-16_sensors_'+ subjectID +'.txt'
+    file_AS = 'C:/Users/dario.dotti/Desktop/data_recordings_master/binary/18-10-16_sensors_'+ subjectID +'.txt'#'C:/Users/dario.dotti/Documents/Datasets/my_dataset/wandering_dataset_um/binary/18-10-16_sensors_'+ subjectID +'.txt'
 
     sensors_ID = ambient_sensors.org_data_ID(file_AS)
     entrance_door = sensors_ID['entrance']
@@ -583,9 +584,9 @@ def measure_joints_accuracy(skeleton_data):
 
 def feature_extraction_video_traj(file_traj):
     ##divide image into patches(polygons) and get the positions of each one
-    #my_room = np.zeros((414,512),dtype=np.uint8)
-    global scene
-    scene = cv2.imread('C:/Users/dario.dotti/Documents/Datasets/my_dataset/wandering_dataset_um/subject4_1834.jpg')
+    #global scene
+    #scene = np.zeros((414,512),dtype=np.uint8)
+    #scene = cv2.imread('C:/Users/dario.dotti/Documents/Datasets/my_dataset/wandering_dataset_um/subject4_1834.jpg')
     #scene = cv2.imread('D:/experiment_data/subject_20/388.jpg')
 
     list_poly = my_img_proc.divide_image(scene)
@@ -606,7 +607,7 @@ def feature_extraction_video_traj(file_traj):
     #measure_joints_accuracy(skeleton_data)
 
     ##display joints
-    #draw_joints_and_tracks(skeleton_data,list_poly)
+    draw_joints_and_tracks(skeleton_data,list_poly)
 
     ##divide the data based on time info
     #skeleton_data_in_time_slices = org_xml_data_timeIntervals(skeleton_data)

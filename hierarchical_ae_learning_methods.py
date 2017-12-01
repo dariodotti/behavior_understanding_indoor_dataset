@@ -644,7 +644,7 @@ def determine_number_k_kMeans(matrix_activations_data_l1):
 
     ##Determine number of K
     ##variance intra cluster
-    k_range = range(2, 103, 20)
+    k_range = range(2, 53, 10)
     #k_range = range(2, 21, 2)
     print k_range
 

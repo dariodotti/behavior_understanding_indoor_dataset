@@ -191,15 +191,26 @@ def get_areas_boxes(scene):
                         # 4 right bottom
 
     scene_shape = np.array(scene).shape
+    ## master recording room ##
+    # box_right = mplPath.Path(np.array([[int(scene_shape[1]*0.66),scene_shape[0]], [int(scene_shape[1]*0.66),0], [scene_shape[1],0], [scene_shape[1], scene_shape[0]]]))
+    # box_left = mplPath.Path(np.array([[0,scene_shape[0]], [0, 0], [int(scene_shape[1]*0.33),0], [int(scene_shape[1]*0.33), scene_shape[0]]]))
+    #
+    # box_center_far = mplPath.Path(np.array([[int(scene_shape[1]*0.37),scene_shape[0]], [int(scene_shape[1]*0.37),0], [int(scene_shape[1]*0.66),0], [int(scene_shape[1]*0.66), scene_shape[0]]]))
+    # box_center_close = mplPath.Path(np.array([[int(scene_shape[1]*0.37),scene_shape[0]], [int(scene_shape[1]*0.37),0], [int(scene_shape[1]*0.66),0], [int(scene_shape[1]*0.66), scene_shape[0]]]))
+    #
+    # cabinet_left = mplPath.Path(np.array([[0,scene_shape[0]], [0, int(scene_shape[0]*0.50)], [int(scene_shape[1]*0.37),int(scene_shape[0]*0.50)], [int(scene_shape[1]*0.37), scene_shape[0]]]))
+    # cabinet_right = mplPath.Path(np.array([[int(scene_shape[1]*0.66),scene_shape[0]], [int(scene_shape[1]*0.66),int(scene_shape[0]*0.5)], [scene_shape[1],int(scene_shape[0]*0.5)], [scene_shape[1], scene_shape[0]]]))
 
+    ##old recording room ##
     box_right = mplPath.Path(np.array([[int(scene_shape[1]*0.66),scene_shape[0]], [int(scene_shape[1]*0.66),0], [scene_shape[1],0], [scene_shape[1], scene_shape[0]]]))
-    box_left = mplPath.Path(np.array([[0,scene_shape[0]], [0, 0], [int(scene_shape[1]*0.33),0], [int(scene_shape[1]*0.33), scene_shape[0]]]))
+    box_left = mplPath.Path(np.array([[0,scene_shape[0]], [0, 0], [int(scene_shape[1]*0.4),0], [int(scene_shape[1]*0.4), scene_shape[0]]]))
 
-    box_center_far = mplPath.Path(np.array([[int(scene_shape[1]*0.33),scene_shape[0]], [int(scene_shape[1]*0.33),0], [int(scene_shape[1]*0.66),0], [int(scene_shape[1]*0.66), scene_shape[0]]]))
-    box_center_close = mplPath.Path(np.array([[int(scene_shape[1]*0.33),scene_shape[0]], [int(scene_shape[1]*0.33),0], [int(scene_shape[1]*0.66),0], [int(scene_shape[1]*0.66), scene_shape[0]]]))
+    box_center_far = mplPath.Path(np.array([[int(scene_shape[1]*0.40),scene_shape[0]], [int(scene_shape[1]*0.40),0], [int(scene_shape[1]*0.66),0], [int(scene_shape[1]*0.66), scene_shape[0]]]))
+    box_center_close = mplPath.Path(np.array([[int(scene_shape[1]*0.40),scene_shape[0]], [int(scene_shape[1]*0.40),0], [int(scene_shape[1]*0.66),0], [int(scene_shape[1]*0.66), scene_shape[0]]]))
 
-    cabinet_left = mplPath.Path(np.array([[0,scene_shape[0]], [0, int(scene_shape[0]*0.55)], [int(scene_shape[1]*0.33),int(scene_shape[0]*0.55)], [int(scene_shape[1]*0.33), scene_shape[0]]]))
-    cabinet_right = mplPath.Path(np.array([[int(scene_shape[1]*0.66),scene_shape[0]], [int(scene_shape[1]*0.66),int(scene_shape[0]*0.5)], [scene_shape[1],int(scene_shape[0]*0.5)], [scene_shape[1], scene_shape[0]]]))
+    cabinet_left = mplPath.Path(np.array([[0,scene_shape[0]], [0, int(scene_shape[0]*0.65)], [int(scene_shape[1]*0.40),int(scene_shape[0]*0.65)], [int(scene_shape[1]*0.40), scene_shape[0]]]))
+    cabinet_right = mplPath.Path(np.array([[int(scene_shape[1]*0.66),scene_shape[0]], [int(scene_shape[1]*0.66),int(scene_shape[0]*0.55)], [scene_shape[1],int(scene_shape[0]*0.55)], [scene_shape[1], scene_shape[0]]]))
+
 
     boxes = [box_center_close, cabinet_left, box_left, box_center_far,  box_right, cabinet_right]
 
@@ -221,8 +232,8 @@ def get_areas_boxes(scene):
         cv2.rectangle(scene, (int(rect.vertices[1][0]), int(rect.vertices[1][1])),
                       (int(rect.vertices[3][0]), int(rect.vertices[3][1])), (0, 0, 0))
     #
-    #cv2.imshow('ciao',scene)
-    #cv2.waitKey(0)
+    # cv2.imshow('ciao',scene)
+    # cv2.waitKey(0)
 
     zs = [2.4, 2.4, 3.2, 4.5, 4.3, 3.2]
 

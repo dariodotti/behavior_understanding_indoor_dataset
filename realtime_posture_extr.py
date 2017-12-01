@@ -5,6 +5,7 @@ from sklearn import decomposition
 from collections import Counter
 from math import atan2,degrees
 from sklearn.preprocessing import normalize
+from sklearn.metrics import euclidean_distances
 
 import img_processing
 import data_organizer
@@ -53,20 +54,23 @@ def get_dist_arms(shoulder_left_x, shoulder_left_y, shoulder_right_x, shoulder_r
 
 
 def draw_arms(temp_img,shoulder_left_x, shoulder_left_y, shoulder_right_x, shoulder_right_y, elbow_left_x,
-                         elbow_left_y, elbow_right_x, elbow_right_y, wrist_left_x,wrist_left_y, wrist_right_x, wrist_right_y,center_x,center_y):
+                         elbow_left_y, elbow_right_x, elbow_right_y, wrist_left_x,wrist_left_y, wrist_right_x, wrist_right_y,center_x,center_y,head_x,head_y,spine_x,spine_y):
 
 
     ## draw arm right
     cv2.line(temp_img, (shoulder_right_x, shoulder_right_y),
-             (elbow_right_x, elbow_right_y), (255, 0, 0), 2)
+             (elbow_right_x, elbow_right_y), (0, 255, 0), 2)
     cv2.line(temp_img, (elbow_right_x, elbow_right_y),
-             (wrist_right_x, wrist_right_y), (255, 0, 0), 2)
+             (wrist_right_x, wrist_right_y), (0, 255, 0), 2)
 
     ## draw arm left
     cv2.line(temp_img, (shoulder_left_x, shoulder_left_y),
              (elbow_left_x, elbow_left_y), (255, 0, 0), 2)
     cv2.line(temp_img, (elbow_left_x, elbow_left_y),
              (wrist_left_x, wrist_left_y), (255, 0, 0), 2)
+
+    cv2.line(temp_img,(head_x, head_y),
+             (spine_x, spine_y), (255, 0, 0), 2)
 
     ## draw center
     cv2.circle(temp_img, (center_x, center_y), 3, (0, 0, 255), -1)
@@ -85,22 +89,22 @@ def lines_intersect(A, B, C, D):
 
 
 def extract_arms_pos(shoulder_left_x, shoulder_left_y, shoulder_right_x, shoulder_right_y, elbow_left_x,
-                          elbow_left_y, elbow_right_x, elbow_right_y, wrist_left_x,wrist_left_y, wrist_right_x, wrist_right_y, head_x, head_y,spineBase_x,spineBase_y):
+                          elbow_left_y, elbow_right_x, elbow_right_y, wrist_left_x,wrist_left_y, wrist_right_x, wrist_right_y, head_x, head_y,spineBase_x,spineBase_y, scene):
 
     imgs = []
 
     ##get 10 fps
-    for i_coord in range(0,len(shoulder_left_x),int(len(shoulder_left_x)/15)):
+    for i_coord in range(0,len(shoulder_left_x),3):
         #print i_coord
 
 
         ### to remove noise  i check if the spine lines pass through the shoulder line ##
 
-        if not lines_intersect((shoulder_left_x[i_coord], shoulder_left_y[i_coord]), (shoulder_right_x[i_coord], shoulder_right_y[i_coord]), \
-                        (head_x[i_coord], head_y[i_coord]),
-                        (spineBase_x[i_coord], spineBase_y[i_coord])):
-            #print 'no intersection'
-            continue
+        # if not lines_intersect((shoulder_left_x[i_coord], shoulder_left_y[i_coord]), (shoulder_right_x[i_coord], shoulder_right_y[i_coord]), \
+        #                 (head_x[i_coord], head_y[i_coord]),
+        #                 (spineBase_x[i_coord], spineBase_y[i_coord])):
+        #     print 'no intersection'
+        #     continue
 
 
         ###Find center X ###
@@ -130,11 +134,11 @@ def extract_arms_pos(shoulder_left_x, shoulder_left_y, shoulder_right_x, shoulde
 
 
         ### Draw ##
-        temp_img = np.zeros((424, 512, 3), dtype=np.uint8)
-        temp_img += 255
-
-        draw_arms(temp_img,shoulder_left_x[i_coord], shoulder_left_y[i_coord], shoulder_right_x[i_coord], shoulder_right_y[i_coord], elbow_left_x[i_coord],
-                  elbow_left_y[i_coord], elbow_right_x[i_coord], elbow_right_y[i_coord], wrist_left_x[i_coord], wrist_left_y[i_coord], wrist_right_x[i_coord], wrist_right_y[i_coord],center_x,center_y)
+        # temp_img = scene.copy()#np.zeros((424, 512, 3), dtype=np.uint8)
+        #
+        # draw_arms(temp_img,shoulder_left_x[i_coord], shoulder_left_y[i_coord], shoulder_right_x[i_coord], shoulder_right_y[i_coord], elbow_left_x[i_coord],
+        #           elbow_left_y[i_coord], elbow_right_x[i_coord], elbow_right_y[i_coord], wrist_left_x[i_coord], wrist_left_y[i_coord],
+        #           wrist_right_x[i_coord], wrist_right_y[i_coord],center_x,center_y,head_x[i_coord],head_y[i_coord],spineBase_x[i_coord] ,spineBase_y[i_coord])
 
 
         ##find difference between the current center and the new img center, use this difference to convert everything
@@ -150,12 +154,6 @@ def extract_arms_pos(shoulder_left_x, shoulder_left_y, shoulder_right_x, shoulde
         limb_pos_y = []
         for limb_y in [shoulder_right_y[i_coord],elbow_right_y[i_coord],wrist_right_y[i_coord],shoulder_left_y[i_coord],elbow_left_y[i_coord],wrist_left_y[i_coord], head_y[i_coord], spineBase_y[i_coord]]:
             limb_pos_y.append(int(limb_y - diff_y))
-
-
-        # feature_img = np.zeros((120, 130, 3), dtype=np.uint8)
-        # feature_img+=255
-        # draw_arms(feature_img,limb_pos_x[3],limb_pos_y[3],limb_pos_x[0],limb_pos_y[0],limb_pos_x[4],limb_pos_y[4],limb_pos_x[1],limb_pos_y[1],\
-        #           limb_pos_x[5],limb_pos_y[5],limb_pos_x[2],limb_pos_y[2],(feature_img.shape[1]/2),(feature_img.shape[0]/2) )
 
 
         ##  draw on black img the arms with value 255
@@ -229,8 +227,8 @@ def extract_arms_pos(shoulder_left_x, shoulder_left_y, shoulder_right_x, shoulde
                 feature_img[int(p[1]), int(p[0]) + 2] = 0.99
 
 
-        cv2.imshow('feature_img',feature_img)
-        cv2.waitKey(0)
+        # cv2.imshow('feature_img',feature_img)
+        # cv2.waitKey(0)
 
         if len(imgs) > 0: imgs = np.vstack((imgs, feature_img.reshape((1, -1))))
         else: imgs = feature_img.reshape((1, -1))
@@ -258,15 +256,13 @@ def compute_hot_f(xs,ys):
 
     step = 10
 
-
     for i in xrange(0, len(xs) - step):
 
-        dx = abs(float(xs[i + step]) - float(xs[i]))
-        dy = abs(float(ys[i + step]) - float(ys[i]))
+        dx = float(xs[i + step]) - float(xs[i])
+        dy = float(ys[i + step]) - float(ys[i])
 
         orientation = int(degrees(atan2(dy, dx)) % 360)
         magn = int(np.sqrt((np.power(dx, 2) + np.power(dy, 2))))
-
         # list_magn.append(magn)
 
         for c_interval, o_interval in enumerate(orientation_intervals):
@@ -285,7 +281,7 @@ def compute_hot_f(xs,ys):
             print 'orientation or magn not in the intervals'
             print orientation, magn
 
-    return normalize(hot_matrix.reshape((len(orientation_intervals)*len(magnitude_intervals))))
+    return normalize(hot_matrix.reshape((1,-1)))
 
 
 def subject_in_key_areas(head_x, head_y, head_z, key_areas):
@@ -306,22 +302,62 @@ def subject_in_key_areas(head_x, head_y, head_z, key_areas):
     return in_key_areas/20
 
 
+def compute_raw_joint_stats(shoulder_left_x, shoulder_left_y, shoulder_right_x, shoulder_right_y, elbow_left_x,
+                          elbow_left_y, elbow_right_x, elbow_right_y, wrist_left_x,wrist_left_y, wrist_right_x, wrist_right_y,head_x, head_y,spineBase_x,spineBase_y,foot_x,foot_y):
+
+    shoulder_left = np.hstack((np.array(shoulder_left_x).reshape((len(shoulder_left_x),1)),np.array(shoulder_left_y).reshape((len(shoulder_left_x),1))))
+    shoulder_right = np.hstack((np.array(shoulder_right_x).reshape((len(shoulder_right_x),1)),np.array(shoulder_right_y).reshape((len(shoulder_right_x),1))))
+
+    elbow_left = np.hstack((np.array(elbow_left_x).reshape((len(elbow_left_x), 1)), np.array(elbow_left_y).reshape((len(elbow_left_x), 1))))
+    elbow_right = np.hstack((np.array(elbow_right_x).reshape((len(elbow_right_x), 1)), np.array(elbow_right_y).reshape((len(elbow_right_x), 1))))
+
+    wrist_left = np.hstack((np.array(wrist_left_x).reshape((len(wrist_left_x), 1)), np.array(wrist_left_y).reshape((len(wrist_left_x), 1))))
+    wrist_right = np.hstack((np.array(wrist_right_x).reshape((len(wrist_right_x), 1)), np.array(wrist_right_y).reshape((len(wrist_right_x), 1))))
+
+    head = np.hstack((np.array(head_x).reshape((len(head_x), 1)), np.array(head_y).reshape((len(head_x), 1))))
+    spineBase = np.hstack((np.array(spineBase_x).reshape((len(spineBase_x), 1)), np.array(spineBase_y).reshape((len(spineBase_x), 1))))
+
+    ## normalize distance according to height of the participant ##
+    foot = np.hstack((np.array(foot_x).reshape((len(foot_x), 1)), np.array(foot_y).reshape((len(foot_y), 1))))
+    h = np.max(euclidean_distances(head, foot))
+    #print 'p height: ', h
 
 
+    joints_raw_f = np.zeros((7,6))
 
-def extract_word_posture(participant_data,key_areas,goal):
+    for i_j,joint in enumerate([head,shoulder_left,shoulder_right,elbow_left,elbow_right,wrist_left,wrist_right]):
+
+        d = euclidean_distances(joint,spineBase)
+        joints_raw_f[i_j,0] = np.max(d)/h
+        joints_raw_f[i_j, 1] = np.min(d)/h
+        joints_raw_f[i_j, 2] = np.std(d)
+
+        ## angles computed clockwise  ##
+        orientation = map(lambda p: img_processing.angle_to(spineBase[p],joint[p]), xrange(len(joint)))
+        joints_raw_f[i_j, 3] = np.max(orientation)
+        joints_raw_f[i_j, 4] = np.min(orientation)
+        joints_raw_f[i_j, 5] = np.std(orientation)
+
+
+    return joints_raw_f.reshape((-1))
+
+
+def extract_word_posture(participant_data,key_areas,scene, goal):
     #scene = np.zeros((414, 512, 3), dtype=np.uint8)
     #scene += 255
 
     task_feature_img = []
-    task_features =[]
+    path_features =[]
+
+
+
 
     for i_task, task in enumerate(participant_data[:4]):
         print 'task: ', i_task
         if len(task) == 0: continue
 
         n_sec_data = []
-        n_task_features = []
+        n_sec_path_features = []
 
 
         for n_slice in range(0, len(task)):
@@ -344,26 +380,34 @@ def extract_word_posture(participant_data,key_areas,goal):
             head_x, head_y, head_z, ids = img_processing.get_coordinate_points(flat_list, joint_id=1)
             spineBase_x,spineBase_y, z, ids = img_processing.get_coordinate_points(flat_list, joint_id=4)
             ##
+            foot_x, foot_y, footz, ids = img_processing.get_coordinate_points(flat_list, joint_id=17)
+
 
             # get_dist_arms(shoulder_left_x, shoulder_left_y, shoulder_right_x, shoulder_right_y, elbow_left_x,
             #               elbow_left_y, elbow_right_x, elbow_right_y, wrist_left_x,wrist_left_y, wrist_right_x, wrist_right_y)
 
-
-            if len(shoulder_left_x)< 30: continue
+            if len(shoulder_left_x)< 48:
+                #print len(shoulder_left_x)
+                continue
 
 
             ### AE features ###
             feature_imgs = extract_arms_pos(shoulder_left_x, shoulder_left_y, shoulder_right_x, shoulder_right_y, elbow_left_x,
-                          elbow_left_y, elbow_right_x, elbow_right_y, wrist_left_x,wrist_left_y, wrist_right_x, wrist_right_y,head_x, head_y,spineBase_x,spineBase_y)
-
-            ### Other features ###
-            ## compute hot ##
-            hot = compute_hot_f(head_x, head_y)
+                          elbow_left_y, elbow_right_x, elbow_right_y, wrist_left_x,wrist_left_y, wrist_right_x, wrist_right_y,head_x, head_y,spineBase_x,spineBase_y, scene)
+            #
+            # ### Other features ###
+            # ## compute hot ##
+            hot = compute_hot_f(spineBase_x,spineBase_y)
 
             ## check whether the participant is in key areas ##
-            in_key_areas = subject_in_key_areas(head_x, head_y, head_z, key_areas)
+            in_key_areas = subject_in_key_areas(spineBase_x,spineBase_y, z, key_areas)
 
-            n_task_features.append([hot,in_key_areas])
+            n_sec_path_features.append([hot[0], in_key_areas[0]])
+
+            ## angles and distance between joints
+            skeleton_body = compute_raw_joint_stats(shoulder_left_x, shoulder_left_y, shoulder_right_x, shoulder_right_y, elbow_left_x,
+                          elbow_left_y, elbow_right_x, elbow_right_y, wrist_left_x,wrist_left_y, wrist_right_x, wrist_right_y,head_x, head_y,spineBase_x,spineBase_y,foot_x,foot_y)
+
 
             if goal == 'train_AE':
                 ### if we want to extract the data to train AE
@@ -390,15 +434,38 @@ def extract_word_posture(participant_data,key_areas,goal):
                         act = img_processing.sigmoid_function((np.dot(img, hd_weights)) + bias_1_level1)
                         n_sec_data =img_processing.sigmoid_function((np.dot(act, AE_weights_level_1[0][1])) + AE_weights_level_1[2])
 
-                    ## when we reach desired time (now 10 seconds)
-                    if n_sec_data.shape[0] == (AE_weights_level_1[0][1].shape[1]*50):
+                ## when we reach desired time
+                if n_sec_data.shape[0] > (AE_weights_level_1[0][1].shape[1]*15):
 
-                        ## PCA and then clustering
-                        task_feature_img.append(cluster_model.predict(pca.transform(n_sec_data.reshape(1, -1)))[0])
-                        n_sec_data = []
+                    n_sec_data = n_sec_data[:(AE_weights_level_1[0][1].shape[1]*16)]
 
-    print task_feature_img
-    print Counter(task_feature_img)
+                    ## PCA and then clustering with 5 seconds concatenated data
+                    #task_feature_img.append(cluster_model.predict(pca.transform(n_sec_data.reshape(1, -1)))[0])
+                    #task_feature_img.append(np.array(pca.transform(n_sec_data.reshape(1, -1))[0]).reshape((1,-1)))
+
+                    ## raw
+                    task_feature_img.append(np.array(n_sec_data.reshape(1, -1)))
+                    n_sec_data = []
+
+                    ## average of the other features
+                    if len(n_sec_path_features)==0:
+                        print 'not enough data '
+                        path_features.append(np.zeros((72)))
+                    else:
+                        n_sec_path_features = np.mean(n_sec_path_features, axis=0)
+                        temp = np.hstack((n_sec_path_features[0],n_sec_path_features[1]))
+                        path_features.append(np.hstack((temp,skeleton_body)))
+                    n_sec_path_features = []
+                else:
+                    print 'not enough frames',n_sec_data.shape[0]
+                    n_sec_data = []
+                    n_sec_path_features = []
+
+    #print task_feature_img
+    #print Counter(task_feature_img)
+    #task_feature_img = np.concatenate(task_feature_img, axis=0)
+    #path_features = np.concatenate(path_features, axis=0)
+    task_feature_img = np.hstack((path_features,np.concatenate(task_feature_img, axis=0) ))
     print task_feature_img.shape
     return task_feature_img
 
@@ -407,21 +474,24 @@ def main_posture_extr():
 
 
     skeleton_data_in_tasks_and_time_slices = data_organizer.load_matrix_pickle(
-        'C:/Users/dario.dotti/Documents/data_for_personality_exp/after_data_cleaning/skeleton_data_in_tasks_time_slices_30fps_ordered.txt')
+        'C:/Users/dario.dotti/Documents/data_for_personality_exp/after_data_cleaning/skeleton_data_in_tasks_time_slices_30fps_ordered.txt')##'C:/Users/dario.dotti/Desktop/data_recordings_master/master_skeleton_data_in_tasks_time_slices_30fps.txt')
 
-    scene = np.zeros((424,512),dtype=np.uint8)
-    # scene += 255
+    scene = np.zeros((424,512,3),dtype=np.uint8)
+    scene += 255
+
+    #scene = cv2.imread('C:/Users/dario.dotti/Desktop/data_recordings_master/images/subject_22/519.jpg')#'C:/Users/dario.dotti/Documents/Datasets/my_dataset/wandering_dataset_um/exp_scene_depth.jpg')#
     boxes, zs, scene = data_organizer.get_areas_boxes(scene)
 
     participants_features = []
-    for i_p in xrange(9,len(skeleton_data_in_tasks_and_time_slices)):
-        task_feature_img = extract_word_posture(skeleton_data_in_tasks_and_time_slices[i_p], [boxes,zs],goal='test_AE')
+    for i_p in xrange(0,len(skeleton_data_in_tasks_and_time_slices)):
+        task_feature_img = extract_word_posture(skeleton_data_in_tasks_and_time_slices[i_p], [boxes,zs],scene, goal='test_AE')
         participants_features.append(task_feature_img)
 
     ## plot dist ##
     #plot_dist()
 
-    #data_organizer.save_matrix_pickle(participants_features, 'C:/Users/dario.dotti/Documents/data_for_personality_exp/after_data_cleaning/posture_data/posture_upperBody_10fps_noNoise.txt')
+    data_organizer.save_matrix_pickle(participants_features,
+                                      'C:/Users/dario.dotti/Documents/data_for_personality_exp/after_data_cleaning/posture_data/upperBody/experiment_upperBody_pathPlanning/RAWpostureUpperBody_path_features_2sec_skeletonF.txt')##'C:/Users/dario.dotti/Desktop/data_recordings_master/data_personality/RAWpostureUpperBody_path_features_master_2sec_skeletonF.txt')
 
 
 
