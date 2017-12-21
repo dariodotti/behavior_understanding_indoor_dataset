@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy import signal
 import matplotlib.path as mplPath
-from math import atan2,degrees,isnan
+from math import atan2,degrees,isnan,pi,acos
 from scipy.ndimage.filters import gaussian_filter
 from collections import defaultdict
 from datetime import datetime
@@ -397,3 +397,11 @@ def bin_points(X, bin_size, min_bin_freq):
     bin_seeds = bin_seeds * bin_size
     return bin_seeds
 ##############
+
+
+
+def angle_to(p1, p2, rotation=0, clockwise=False):
+    angle = degrees(atan2(p2[1] - p1[1], p2[0] - p1[0])) - rotation
+    if not clockwise:
+        angle = -angle
+    return angle % 360

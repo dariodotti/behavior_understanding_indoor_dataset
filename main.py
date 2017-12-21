@@ -12,7 +12,7 @@ import video_traj
 
 def get_video_features():
     #read and parse file with recorded data
-    with open('C:/Users/dario.dotti/Documents/Datasets/my_dataset/wandering_dataset_um/file_to_analyze_6_labels_ordered.txt','r') as f:#
+    with open('C:/Users/dario.dotti/Documents/Datasets/my_dataset/wandering_dataset_um/file_to_analyze_6_labels_ordered.txt','r') as f:#C:/Users/dario.dotti/Desktop/data_recordings_master/file_to_analize_master_recordings.txt
         files = f.read().split('\n')
         print 'number of recorded files: '+str(len(files))
 
@@ -34,7 +34,7 @@ def get_video_features():
 
     print len(matrix_allData_HOT)
     #scipy.io.savemat('C:/Users/dario.dotti/Documents/hot_spatial_grid_4x4.mat',mdict={'spatial_grid_4x4': matrix_allData_HOT})
-    my_data_org.save_matrix_pickle(matrix_allData_HOT,'C:/Users/dario.dotti/Documents/data_for_personality_exp/after_data_cleaning/skeleton_data_in_tasks_time_slices_30fps_ordered') #
+    my_data_org.save_matrix_pickle(matrix_allData_HOT,'C:/Users/dario.dotti/Documents/data_for_personality_exp/after_data_cleaning/skeleton_data_in_tasks_time_slices_30fps_ordered_1sec.txt')##C:/Users/dario.dotti/Desktop/data_recordings_master/master_skeleton_data_in_tasks_time_slices_30fps_1sec.txt
 
 
 def get_ambient_sensor_features():

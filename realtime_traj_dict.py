@@ -15,11 +15,11 @@ import AE_rec
 
 
 
-AE_weights_level_1 = data_organizer.load_matrix_pickle(
-        'C:/Users/dario.dotti/Documents/data_for_personality_exp/after_data_cleaning/ae/head_joint_id1/144weights_l1_hd1002.txt')
-
-cluster_model_l1 = data_organizer.load_matrix_pickle(
-        'C:/Users/dario.dotti/Documents/data_for_personality_exp/after_data_cleaning/head_joint_id1/20_cluster_model_layer1.txt')
+# AE_weights_level_1 = data_organizer.load_matrix_pickle(
+#         'C:/Users/dario.dotti/Documents/data_for_personality_exp/after_data_cleaning/ae/head_joint_id1/144weights_l1_hd1002.txt')
+#
+# cluster_model_l1 = data_organizer.load_matrix_pickle(
+#         'C:/Users/dario.dotti/Documents/data_for_personality_exp/after_data_cleaning/head_joint_id1/20_cluster_model_layer1.txt')
 
 def encode_features_using_AE_layer1_cluster_activation(feature_matrix,layer):
 
@@ -209,9 +209,9 @@ def extract_traj_word_spatio_temporal_grid(participant_data, n_layer):
 
 
 def extract_traj_word_temporal_window(participant_data, n_layer):
-    # scene = cv2.imread('C:/Users/dario.dotti/Documents/Datasets/my_dataset/wandering_dataset_um/exp_scene_depth.jpg')
-    scene = np.zeros((414, 512, 3), dtype=np.uint8)
-    scene += 255
+    scene = cv2.imread('C:/Users/dario.dotti/Documents/Datasets/my_dataset/wandering_dataset_um/exp_scene_depth.jpg')
+    #scene = np.zeros((414, 512, 3), dtype=np.uint8)
+    #scene += 255
 
     size_mask = 20
 
@@ -250,10 +250,10 @@ def extract_traj_word_temporal_window(participant_data, n_layer):
             # get x,y,z of every traj point after smoothing process
             x_f, y_f, z, ids = img_processing.get_coordinate_points(flat_list, joint_id=1)
 
-            for point in range(len(x_f)):
-                cv2.circle(temp_scene,(x_f[point],y_f[point]),1,(0,0,255),-1)
-            cv2.imshow('ciao', temp_scene)
-            cv2.waitKey(0)
+            # for point in range(len(x_f)):
+            #     cv2.circle(temp_scene,(x_f[point],y_f[point]),1,(0,0,255),-1)
+            # cv2.imshow('ciao', temp_scene)
+            # cv2.waitKey(0)
 
             directions = hs.get_directions_traj(x_f, y_f)
             if directions[0] == -180: directions[0] = 180
@@ -443,7 +443,7 @@ def main_realtime_traj_dict():
     for participant in skeleton_data_in_tasks_and_time_slices:
 
         #extract_traj_word_spatio_temporal_grid(participant, n_layer=1)
-        feature_participant,orig_point_participant = extract_traj_word_temporal_window(participant, n_layer=2)
+        feature_participant,orig_point_participant = extract_traj_word_temporal_window(participant, n_layer=1)
         final_matrix.append(feature_participant)
         final_orig_points.append(orig_point_participant)
 

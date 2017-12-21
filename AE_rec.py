@@ -512,10 +512,10 @@ def hid_unit_activation_allLayers(raw_features, AE_weights):
 def check_rec_in_clusters(matrix_activations_data_l1,pred,AE_weight_layer1, kmean_centers, matrix_act_transf,save_img):
 
 
-    newpath = 'C:/Users/dario.dotti/Documents/data_for_personality_exp/after_data_cleaning/posture_data/upperBody/100pca_agglomerative_cluster_layer1_15_clusters_cosine_5sec/'
+    newpath = 'C:/Users/dario.dotti/Documents/data_for_personality_exp/after_2_data_recording/posture/posture_40clusters/'
 
 
-    for cluster_class in range(15):
+    for cluster_class in range(40):
 
         print cluster_class
 
@@ -523,18 +523,18 @@ def check_rec_in_clusters(matrix_activations_data_l1,pred,AE_weight_layer1, kmea
         index_samples = np.where(pred==cluster_class)[0][:5]
 
         activation_current_class = matrix_activations_data_l1[index_samples]
-        activation_current_class_t = matrix_act_transf[index_samples]
+        #activation_current_class_t = matrix_act_transf[index_samples]
 
         ######take the n closest samples #######
         ##compute the distance between activantion of current cluster and its cluster center
-        #d = cdist(activation_current_class_t, kmean_centers[cluster_class].reshape((1,-1)))
-        #closest_samples = np.sort(d, axis=0)[:5]
-        #index_min = [np.where(d == c_s) for c_s in closest_samples]
-        #activation_closest_samples = [activation_current_class[i_m[0][0]] for i_m in index_min]
+        d = cdist(activation_current_class, kmean_centers[cluster_class].reshape((1,-1)))
+        closest_samples = np.sort(d, axis=0)[:5]
+        index_min = [np.where(d == c_s) for c_s in closest_samples]
+        activation_closest_samples = [activation_current_class[i_m[0][0]] for i_m in index_min]
         #######
 
         mean_rec = np.zeros((120,120))
-        for i_sample,sample_current_class in enumerate(activation_current_class):
+        for i_sample,sample_current_class in enumerate(activation_closest_samples):
 
             if np.sum(sample_current_class)==0: continue
 
