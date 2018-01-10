@@ -384,9 +384,6 @@ def my_mean_shift_vect(data,iterations,kernel_bandwith):
     return shifted_pts
 
 
-
-
-
 def bin_points(X, bin_size, min_bin_freq):
     bin_sizes = defaultdict(int)
     for point in X:
@@ -399,7 +396,10 @@ def bin_points(X, bin_size, min_bin_freq):
 ##############
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9348384985d2847c272133ff77ce6181ca1fa082
 def angle_to(p1, p2, rotation=0, clockwise=False):
     angle = degrees(atan2(p2[1] - p1[1], p2[0] - p1[0])) - rotation
     if not clockwise:

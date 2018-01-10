@@ -4,6 +4,7 @@ import math
 from datetime import datetime
 import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
+from sklearn.feature_extraction.image import img_to_graph
 
 import img_processing
 import data_organizer
@@ -15,11 +16,19 @@ import AE_rec
 
 
 
+<<<<<<< HEAD
 # AE_weights_level_1 = data_organizer.load_matrix_pickle(
 #         'C:/Users/dario.dotti/Documents/data_for_personality_exp/after_data_cleaning/ae/head_joint_id1/144weights_l1_hd1002.txt')
 #
 # cluster_model_l1 = data_organizer.load_matrix_pickle(
 #         'C:/Users/dario.dotti/Documents/data_for_personality_exp/after_data_cleaning/head_joint_id1/20_cluster_model_layer1.txt')
+=======
+AE_weights_level_1 = data_organizer.load_matrix_pickle(
+        'C:/Users/dario.dotti/Desktop/Hier_AE_deliverable/ae/head_joint_id1/144weights_l1_hd1002.txt')
+
+cluster_model_l1 = data_organizer.load_matrix_pickle(
+    'C:/Users/dario.dotti/Desktop/Hier_AE_deliverable/40_cluster_model_layer2_new.txt')
+>>>>>>> 9348384985d2847c272133ff77ce6181ca1fa082
 
 def encode_features_using_AE_layer1_cluster_activation(feature_matrix,layer):
 
@@ -209,9 +218,18 @@ def extract_traj_word_spatio_temporal_grid(participant_data, n_layer):
 
 
 def extract_traj_word_temporal_window(participant_data, n_layer):
+<<<<<<< HEAD
     scene = cv2.imread('C:/Users/dario.dotti/Documents/Datasets/my_dataset/wandering_dataset_um/exp_scene_depth.jpg')
     #scene = np.zeros((414, 512, 3), dtype=np.uint8)
     #scene += 255
+=======
+    #scene = cv2.imread('C:/Users/dario.dotti/Documents/Datasets/my_dataset/wandering_dataset_um/exp_scene_depth.jpg')
+    scene = np.zeros((414, 512, 3), dtype=np.uint8)
+    scene += 255
+>>>>>>> 9348384985d2847c272133ff77ce6181ca1fa082
+
+    list_poly = img_processing.divide_image(scene)
+
 
     size_mask = 20
 
@@ -220,6 +238,7 @@ def extract_traj_word_temporal_window(participant_data, n_layer):
 
     matrix_features_participant = []
     matrix_original_points_participants = []
+    matrix_real_coord_participants = []
 
     for i_task, task in enumerate(participant_data):
         print 'task: ', i_task
@@ -231,21 +250,23 @@ def extract_traj_word_temporal_window(participant_data, n_layer):
         directions_history = []
         activation_history = []
         orig_points_history = []
+        real_coord= []
         temp_scene = scene.copy()
 
         matrix_features_task = []
         matrix_activations_task = []
         matrix_orig_points_task = []
+        matrix_real_coord = []
 
         temp_scene = scene.copy()
 
         for n_slice in range(0, len(task)):
             if len(task[n_slice]) <= 1 : continue
-            print 'n_slice ', n_slice
+            #print 'n_slice ', n_slice
 
             flat_list = [item for item in task[n_slice]]
 
-            video_traj.draw_joints_and_tracks(flat_list, [])
+            #video_traj.draw_joints_and_tracks(flat_list, [])
 
             # get x,y,z of every traj point after smoothing process
             x_f, y_f, z, ids = img_processing.get_coordinate_points(flat_list, joint_id=1)
@@ -254,6 +275,10 @@ def extract_traj_word_temporal_window(participant_data, n_layer):
             #     cv2.circle(temp_scene,(x_f[point],y_f[point]),1,(0,0,255),-1)
             # cv2.imshow('ciao', temp_scene)
             # cv2.waitKey(0)
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9348384985d2847c272133ff77ce6181ca1fa082
 
             directions = hs.get_directions_traj(x_f, y_f)
             if directions[0] == -180: directions[0] = 180
@@ -273,7 +298,7 @@ def extract_traj_word_temporal_window(participant_data, n_layer):
 
 
             ### Get the max distance in the list ####
-            print distances[index_max]
+            #print distances[index_max]
             if distances[index_max] > size_mask/2:
 
                 OldRange = (distances[index_max])
@@ -302,12 +327,13 @@ def extract_traj_word_temporal_window(participant_data, n_layer):
 
             elif n_layer == 2:
 
-
                 orig_points_history.append(orig_points)
 
                 activation = encode_features_using_AE_layer1_cluster_activation(traj_features, 'layer2')
 
                 activation_history.append(activation)
+
+                real_coord.append([x_f,y_f,z])
 
                 if len(activation_history) == 3:
 
@@ -331,8 +357,14 @@ def extract_traj_word_temporal_window(participant_data, n_layer):
                         else: matrix_activations_task = matrixt_activation_l2
 
                         ##save original for layer2
-                        if len(matrix_orig_points_task) > 0: matrix_orig_points_task = np.vstack((matrix_orig_points_task, original_points_l2))
-                        else: matrix_orig_points_task = original_points_l2
+                        # if len(matrix_orig_points_task) > 0: matrix_orig_points_task = np.vstack((matrix_orig_points_task, original_points_l2))
+                        # else: matrix_orig_points_task = original_points_l2
+
+                        ##save original coordinates for layer2
+                        temp = [np.concatenate(r,axis=0) for r in real_coord]
+                        matrix_real_coord.append(temp)
+
+
 
                     ##refresh history
                     orig_points_history = []
@@ -340,13 +372,15 @@ def extract_traj_word_temporal_window(participant_data, n_layer):
                     activation_history = []
                     orig_points_history = []
                     labels_history = []
+                    real_coord = []
 
 
         matrix_features_participant.append(matrix_activations_task)
         matrix_original_points_participants.append(matrix_orig_points_task)
+        matrix_real_coord_participants.append(matrix_real_coord)
 
 
-    return matrix_features_participant,matrix_original_points_participants
+    return matrix_features_participant,matrix_original_points_participants,matrix_real_coord_participants
 
 
 def get_distances_between_points(participant_data):
@@ -420,7 +454,7 @@ def main_realtime_traj_dict():
     #slices = data_organizer.load_matrix_pickle('C:/Users/dario.dotti/Documents/data_for_personality_exp/traj_org_by_ID_10fps.txt')
 
     skeleton_data_in_tasks_and_time_slices = data_organizer.load_matrix_pickle(
-        'C:/Users/dario.dotti/Documents/data_for_personality_exp/after_data_cleaning/skeleton_data_in_tasks_time_slices_30fps.txt')
+        'C:/Users/dario.dotti/Documents/data_for_personality_exp/after_data_cleaning/skeleton_data_in_tasks_time_slices_30fps.txt')#'C:/Users/dario.dotti/Desktop/data_recordings_master/master_skeleton_data_in_tasks_time_slices_30fps.txt')
 
     ### Staatistics on data #####
     # matrix_dist = []
@@ -440,17 +474,24 @@ def main_realtime_traj_dict():
 
     final_matrix = []
     final_orig_points = []
+    final_matrix_realcoord =[]
     for participant in skeleton_data_in_tasks_and_time_slices:
 
         #extract_traj_word_spatio_temporal_grid(participant, n_layer=1)
+<<<<<<< HEAD
         feature_participant,orig_point_participant = extract_traj_word_temporal_window(participant, n_layer=1)
+=======
+        feature_participant,orig_point_participant,matrix_real_coord = extract_traj_word_temporal_window(participant, n_layer=2)
+        final_matrix_realcoord.append(matrix_real_coord)
+>>>>>>> 9348384985d2847c272133ff77ce6181ca1fa082
         final_matrix.append(feature_participant)
         final_orig_points.append(orig_point_participant)
 
     print len(final_matrix),len(final_orig_points)
 
-    # data_organizer.save_matrix_pickle(final_matrix, 'C:/Users/dario.dotti/Documents/data_for_personality_exp/after_data_cleaning/head_joint_id1/feature_matrix_participant_task_l2_new.txt')
-    # data_organizer.save_matrix_pickle(final_orig_points,
+    final_matrix=final_matrix+final_matrix_realcoord
+    data_organizer.save_matrix_pickle(final_matrix, 'C:/Users/dario.dotti/Desktop/Hier_AE_deliverable/head_joint_id1/feature_matrix_participant_task_l2_new_realCoordinates.txt')
+    #data_organizer.save_matrix_pickle(final_orig_points,
     #                                   'C:/Users/dario.dotti/Documents/data_for_personality_exp/after_data_cleaning/head_joint_id1/orig_points_participant_task_l2_new.txt')
 
 

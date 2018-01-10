@@ -59,9 +59,9 @@ def draw_arms(temp_img,shoulder_left_x, shoulder_left_y, shoulder_right_x, shoul
 
     ## draw arm right
     cv2.line(temp_img, (shoulder_right_x, shoulder_right_y),
-             (elbow_right_x, elbow_right_y), (255, 0, 0), 2)
+             (elbow_right_x, elbow_right_y), (0, 255, 0), 2)
     cv2.line(temp_img, (elbow_right_x, elbow_right_y),
-             (wrist_right_x, wrist_right_y), (255, 0, 0), 2)
+             (wrist_right_x, wrist_right_y), (0, 255, 0), 2)
 
     ## draw arm left
     cv2.line(temp_img, (shoulder_left_x, shoulder_left_y),
@@ -350,6 +350,10 @@ def extract_word_posture(participant_data,key_areas,scene, goal):
     path_features =[]
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9348384985d2847c272133ff77ce6181ca1fa082
 
 
     for i_task, task in enumerate(participant_data):
@@ -386,7 +390,11 @@ def extract_word_posture(participant_data,key_areas,scene, goal):
             # get_dist_arms(shoulder_left_x, shoulder_left_y, shoulder_right_x, shoulder_right_y, elbow_left_x,
             #               elbow_left_y, elbow_right_x, elbow_right_y, wrist_left_x,wrist_left_y, wrist_right_x, wrist_right_y)
 
+<<<<<<< HEAD
             if len(shoulder_left_x)< 24:
+=======
+            if len(shoulder_left_x)< 48:
+>>>>>>> 9348384985d2847c272133ff77ce6181ca1fa082
                 #print len(shoulder_left_x)
                 continue
 
@@ -435,6 +443,7 @@ def extract_word_posture(participant_data,key_areas,scene, goal):
                         n_sec_data =img_processing.sigmoid_function((np.dot(act, AE_weights_level_1[0][1])) + AE_weights_level_1[2])
 
                 ## when we reach desired time
+<<<<<<< HEAD
                 if n_sec_data.shape[0] > (AE_weights_level_1[0][1].shape[1]*7):#*15
 
                     n_sec_data = n_sec_data[:(AE_weights_level_1[0][1].shape[1]*8)]#*16
@@ -447,6 +456,20 @@ def extract_word_posture(participant_data,key_areas,scene, goal):
                     task_feature_img.append(np.array(n_sec_data.reshape(1, -1)))
                     n_sec_data = []
 
+=======
+                if n_sec_data.shape[0] > (AE_weights_level_1[0][1].shape[1]*15):
+
+                    n_sec_data = n_sec_data[:(AE_weights_level_1[0][1].shape[1]*16)]
+
+                    ## PCA and then clustering with 5 seconds concatenated data
+                    #task_feature_img.append(cluster_model.predict(pca.transform(n_sec_data.reshape(1, -1)))[0])
+                    #task_feature_img.append(np.array(pca.transform(n_sec_data.reshape(1, -1))[0]).reshape((1,-1)))
+
+                    ## raw
+                    task_feature_img.append(np.array(n_sec_data.reshape(1, -1)))
+                    n_sec_data = []
+
+>>>>>>> 9348384985d2847c272133ff77ce6181ca1fa082
                     ## average of the other features
                     if len(n_sec_path_features)==0:
                         print 'not enough data '
@@ -465,12 +488,17 @@ def extract_word_posture(participant_data,key_areas,scene, goal):
     #print Counter(task_feature_img)
     #task_feature_img = np.concatenate(task_feature_img, axis=0)
     #path_features = np.concatenate(path_features, axis=0)
+<<<<<<< HEAD
 
     if len(path_features)>1 and len(task_feature_img)>1:
         task_feature_img = np.concatenate(task_feature_img, axis=0)
         task_feature_img = np.hstack((path_features,task_feature_img ))
         print task_feature_img.shape
     else:task_feature_img = []
+=======
+    task_feature_img = np.hstack((path_features,np.concatenate(task_feature_img, axis=0) ))
+    print task_feature_img.shape
+>>>>>>> 9348384985d2847c272133ff77ce6181ca1fa082
     return task_feature_img
 
 
@@ -478,12 +506,21 @@ def main_posture_extr():
 
 
     skeleton_data_in_tasks_and_time_slices = data_organizer.load_matrix_pickle(
+<<<<<<< HEAD
         'C:/Users/dario.dotti/Documents/data_for_personality_exp/after_data_cleaning/skeleton_data_in_tasks_time_slices_30fps_ordered_1sec.txt')##'C:/Users/dario.dotti/Desktop/data_recordings_master/master_skeleton_data_in_tasks_time_slices_30fps_1sec.txt')
 
     #scene = np.zeros((424,512,3),dtype=np.uint8)
     #scene += 255
 
     scene = cv2.imread('C:/Users/dario.dotti/Desktop/data_recordings_master/images/subject_22/519.jpg')#'C:/Users/dario.dotti/Documents/Datasets/my_dataset/wandering_dataset_um/exp_scene_depth.jpg')#
+=======
+        'C:/Users/dario.dotti/Documents/data_for_personality_exp/after_data_cleaning/skeleton_data_in_tasks_time_slices_30fps_ordered.txt')##'C:/Users/dario.dotti/Desktop/data_recordings_master/master_skeleton_data_in_tasks_time_slices_30fps.txt')
+
+    scene = np.zeros((424,512,3),dtype=np.uint8)
+    scene += 255
+
+    #scene = cv2.imread('C:/Users/dario.dotti/Desktop/data_recordings_master/images/subject_22/519.jpg')#'C:/Users/dario.dotti/Documents/Datasets/my_dataset/wandering_dataset_um/exp_scene_depth.jpg')#
+>>>>>>> 9348384985d2847c272133ff77ce6181ca1fa082
     boxes, zs, scene = data_organizer.get_areas_boxes(scene)
 
     participants_features = []
@@ -495,7 +532,11 @@ def main_posture_extr():
     #plot_dist()
 
     data_organizer.save_matrix_pickle(participants_features,
+<<<<<<< HEAD
                                       'C:/Users/dario.dotti/Documents/data_for_personality_exp/after_data_cleaning/posture_data/upperBody/experiment_upperBody_pathPlanning/RAWpostureUpperBody_path_features_skeletonF_ALLTASKS_1sec.txt')##'C:/Users/dario.dotti/Desktop/data_recordings_master/data_personality/RAWpostureUpperBody_path_features_master_2sec_skeletonF_ALLTASKS_1sec.txt')
+=======
+                                      'C:/Users/dario.dotti/Documents/data_for_personality_exp/after_data_cleaning/posture_data/upperBody/experiment_upperBody_pathPlanning/RAWpostureUpperBody_path_features_2sec_skeletonF.txt')##'C:/Users/dario.dotti/Desktop/data_recordings_master/data_personality/RAWpostureUpperBody_path_features_master_2sec_skeletonF.txt')
+>>>>>>> 9348384985d2847c272133ff77ce6181ca1fa082
 
 
 

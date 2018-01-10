@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4dc86e41-93fe-4a0c-9d5e-090566dd67bf" name="Default" comment="">
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/behaviorUnderstanding_indoor_dataset.iml" afterPath="$PROJECT_DIR$/.idea/behaviorUnderstanding_indoor_dataset.iml" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -13,6 +14,18 @@
       <change beforePath="$PROJECT_DIR$/realtime_posture_extr.py" afterPath="$PROJECT_DIR$/realtime_posture_extr.py" />
       <change beforePath="$PROJECT_DIR$/realtime_traj_dict.py" afterPath="$PROJECT_DIR$/realtime_traj_dict.py" />
       <change beforePath="$PROJECT_DIR$/video_traj.py" afterPath="$PROJECT_DIR$/video_traj.py" />
+=======
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AE_rec.py" afterPath="$PROJECT_DIR$/AE_rec.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data_organizer.py" afterPath="$PROJECT_DIR$/data_organizer.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hierarchical_ae_learning_methods.py" afterPath="$PROJECT_DIR$/hierarchical_ae_learning_methods.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/img_processing.py" afterPath="$PROJECT_DIR$/img_processing.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laban_posture.py" afterPath="$PROJECT_DIR$/laban_posture.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/realtime_posture_extr.py" afterPath="$PROJECT_DIR$/realtime_posture_extr.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/realtime_traj_dict.py" afterPath="$PROJECT_DIR$/realtime_traj_dict.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/video_traj.py" afterPath="$PROJECT_DIR$/video_traj.py" />
+>>>>>>> 9348384985d2847c272133ff77ce6181ca1fa082
     </list>
     <ignored path="behaviorUnderstanding_indoor_dataset.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,13 +47,19 @@
       <file leaf-file-name="AE_rec.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AE_rec.py">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="187">
               <caret line="162" column="0" lean-forward="true" selection-start-line="162" selection-start-column="0" selection-end-line="162" selection-end-column="0" />
+=======
+            <state relative-caret-position="7021">
+              <caret line="795" column="17" lean-forward="false" selection-start-line="795" selection-start-column="17" selection-end-line="795" selection-end-column="17" />
+>>>>>>> 9348384985d2847c272133ff77ce6181ca1fa082
               <folding>
                 <element signature="e#708#2755#0" expanded="false" />
                 <element signature="e#2848#4897#0" expanded="false" />
                 <element signature="e#5023#8192#0" expanded="false" />
                 <element signature="e#8327#11728#0" expanded="false" />
+<<<<<<< HEAD
                 <element signature="e#19859#22818#0" expanded="false" />
               </folding>
             </state>
@@ -82,6 +101,9 @@
               <caret line="190" column="131" lean-forward="false" selection-start-line="190" selection-start-column="131" selection-end-line="190" selection-end-column="131" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
+=======
+                <element signature="e#19915#22874#0" expanded="false" />
+>>>>>>> 9348384985d2847c272133ff77ce6181ca1fa082
               </folding>
             </state>
           </provider>
@@ -89,6 +111,7 @@
       </file>
       <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
+<<<<<<< HEAD
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="476">
               <caret line="36" column="20" lean-forward="false" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="20" />
@@ -102,8 +125,73 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="3332">
               <caret line="202" column="0" lean-forward="false" selection-start-line="202" selection-start-column="0" selection-end-line="202" selection-end-column="0" />
+=======
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="26" column="49" lean-forward="false" selection-start-line="26" selection-start-column="49" selection-end-line="26" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="experiments.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/experiments.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3417">
+              <caret line="276" column="154" lean-forward="false" selection-start-line="276" selection-start-column="130" selection-end-line="276" selection-end-column="154" />
               <folding>
-                <element signature="e#0#22#0" expanded="true" />
+                <element signature="e#421#2282#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test_BOW_deliverable.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test_BOW_deliverable.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="hierarchical_ae_learning_methods.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hierarchical_ae_learning_methods.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="595">
+              <caret line="44" column="4" lean-forward="false" selection-start-line="44" selection-start-column="4" selection-end-line="44" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="video_traj.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/video_traj.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="6426">
+              <caret line="388" column="39" lean-forward="false" selection-start-line="388" selection-start-column="39" selection-end-line="388" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="realtime_traj_dict.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/realtime_traj_dict.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="410">
+              <caret line="463" column="0" lean-forward="false" selection-start-line="463" selection-start-column="0" selection-end-line="463" selection-end-column="0" />
+>>>>>>> 9348384985d2847c272133ff77ce6181ca1fa082
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+                <element signature="e#1469#8548#0" expanded="false" />
+                <element signature="e#4765#5076#0" expanded="false" />
+                <element signature="e#6502#7228#0" expanded="false" />
+                <element signature="e#12092#12330#0" expanded="false" />
+                <element signature="e#15011#16768#0" expanded="false" />
+                <element signature="e#16805#17209#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -112,15 +200,24 @@
       <file leaf-file-name="img_processing.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/img_processing.py">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="3910">
               <caret line="406" column="22" lean-forward="false" selection-start-line="406" selection-start-column="22" selection-end-line="406" selection-end-column="22" />
+=======
+            <state relative-caret-position="259">
+              <caret line="32" column="4" lean-forward="false" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="4" />
+>>>>>>> 9348384985d2847c272133ff77ce6181ca1fa082
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
                 <element signature="e#5158#7487#0" expanded="false" />
                 <element signature="e#7550#10176#0" expanded="false" />
                 <element signature="e#10237#10675#0" expanded="false" />
                 <element signature="e#11473#12117#0" expanded="false" />
+<<<<<<< HEAD
                 <marker date="1512552793827" expanded="false" signature="12165:12510" ph="..." />
+=======
+                <marker date="1512045566116" expanded="false" signature="12162:12507" ph="..." />
+>>>>>>> 9348384985d2847c272133ff77ce6181ca1fa082
               </folding>
             </state>
           </provider>
@@ -129,6 +226,7 @@
       <file leaf-file-name="realtime_posture_extr.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/realtime_posture_extr.py">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="6052">
               <caret line="497" column="205" lean-forward="false" selection-start-line="497" selection-start-column="205" selection-end-line="497" selection-end-column="205" />
               <folding>
@@ -140,11 +238,21 @@
                 <element signature="e#13751#14270#0" expanded="false" />
                 <element signature="e#14571#16624#0" expanded="false" />
                 <element signature="e#19727#19963#0" expanded="false" />
+=======
+            <state relative-caret-position="395">
+              <caret line="494" column="0" lean-forward="false" selection-start-line="494" selection-start-column="0" selection-end-line="494" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+                <element signature="e#369#860#0" expanded="false" />
+                <element signature="e#13749#14268#0" expanded="false" />
+                <element signature="e#19729#19965#0" expanded="false" />
+>>>>>>> 9348384985d2847c272133ff77ce6181ca1fa082
               </folding>
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="laban_posture.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/laban_posture.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -167,6 +275,17 @@
               <caret line="139" column="51" lean-forward="false" selection-start-line="139" selection-start-column="51" selection-end-line="139" selection-end-column="51" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
+=======
+      <file leaf-file-name="laban_posture.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/laban_posture.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="74" lean-forward="false" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="74" />
+              <folding>
+                <element signature="e#788#1310#0" expanded="false" />
+                <element signature="e#12523#13920#0" expanded="false" />
+                <marker date="1512115225014" expanded="true" signature="10949:11252" ph="..." />
+>>>>>>> 9348384985d2847c272133ff77ce6181ca1fa082
               </folding>
             </state>
           </provider>
@@ -183,6 +302,11 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
+<<<<<<< HEAD
+=======
+      <find>my_ms</find>
+      <find>video_clustering_fit</find>
+>>>>>>> 9348384985d2847c272133ff77ce6181ca1fa082
       <find>example_for_every_cluster_center</find>
       <find>hist</find>
       <find>load</find>
@@ -208,11 +332,16 @@
       <find>deter</find>
       <find>extract_arms_pos</find>
       <find>cluster_activation_allLayers</find>
+<<<<<<< HEAD
       <find>max</find>
       <find>check_rec_in_clusters</find>
       <find>accuracy_score</find>
       <find>start</find>
       <find>train_test_split</find>
+=======
+      <find>print</find>
+      <find>hot</find>
+>>>>>>> 9348384985d2847c272133ff77ce6181ca1fa082
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -237,17 +366,28 @@
         <option value="$PROJECT_DIR$/experiments.py" />
         <option value="$PROJECT_DIR$/ambient_sensors.py" />
         <option value="$PROJECT_DIR$/realtime_simple_features_extraction.py" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/realtime_traj_dict.py" />
         <option value="$PROJECT_DIR$/test_BOW_deliverable.py" />
         <option value="$PROJECT_DIR$/AE_rec.py" />
         <option value="$PROJECT_DIR$/img_processing.py" />
         <option value="$PROJECT_DIR$/hierarchical_ae_learning_methods.py" />
         <option value="$USER_HOME$/Documents/data_for_personality_exp/after_2_data_recording/posture/Temporal_dynamics_exp/test.py" />
+=======
+        <option value="$PROJECT_DIR$/hierarchical_ae_learning_methods.py" />
+        <option value="$PROJECT_DIR$/img_processing.py" />
+        <option value="$PROJECT_DIR$/AE_rec.py" />
+>>>>>>> 9348384985d2847c272133ff77ce6181ca1fa082
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/video_traj.py" />
         <option value="$PROJECT_DIR$/data_organizer.py" />
         <option value="$PROJECT_DIR$/realtime_posture_extr.py" />
         <option value="$PROJECT_DIR$/laban_posture.py" />
+<<<<<<< HEAD
+=======
+        <option value="$PROJECT_DIR$/realtime_traj_dict.py" />
+        <option value="$PROJECT_DIR$/test_BOW_deliverable.py" />
+>>>>>>> 9348384985d2847c272133ff77ce6181ca1fa082
       </list>
     </option>
   </component>
@@ -309,8 +449,9 @@
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Motion_Personality" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../traj_dictionary" />
   </component>
+<<<<<<< HEAD
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -325,6 +466,10 @@
   </component>
   <component name="RunManager" selected="Python.laban_posture">
     <configuration name="laban_posture" type="PythonConfigurationType" factoryName="Python" temporary="true">
+=======
+  <component name="RunManager" selected="Python.realtime_traj_dict">
+    <configuration default="false" name="AE_rec" type="PythonConfigurationType" factoryName="Python" temporary="true">
+>>>>>>> 9348384985d2847c272133ff77ce6181ca1fa082
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -360,7 +505,11 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
+<<<<<<< HEAD
     <configuration name="realtime_posture_extr" type="PythonConfigurationType" factoryName="Python" temporary="true">
+=======
+    <configuration default="false" name="realtime_posture_extr" type="PythonConfigurationType" factoryName="Python" temporary="true">
+>>>>>>> 9348384985d2847c272133ff77ce6181ca1fa082
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -378,7 +527,11 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
+<<<<<<< HEAD
     <configuration name="realtime_traj_dict" type="PythonConfigurationType" factoryName="Python">
+=======
+    <configuration default="false" name="laban_posture" type="PythonConfigurationType" factoryName="Python" temporary="true">
+>>>>>>> 9348384985d2847c272133ff77ce6181ca1fa082
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -390,7 +543,11 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="behaviorUnderstanding_indoor_dataset" />
+<<<<<<< HEAD
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/realtime_traj_dict.py" />
+=======
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/laban_posture.py" />
+>>>>>>> 9348384985d2847c272133ff77ce6181ca1fa082
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -414,7 +571,11 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
+<<<<<<< HEAD
     <configuration name="test_BOW_deliverable" type="PythonConfigurationType" factoryName="Python" temporary="true">
+=======
+    <configuration default="false" name="test_BOW_deliverable" type="PythonConfigurationType" factoryName="Python" temporary="true">
+>>>>>>> 9348384985d2847c272133ff77ce6181ca1fa082
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -568,6 +729,7 @@
     </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Python.realtime_traj_dict" />
+<<<<<<< HEAD
       <item index="1" class="java.lang.String" itemvalue="Python.main" />
       <item index="2" class="java.lang.String" itemvalue="Python.realtime_posture_extr" />
       <item index="3" class="java.lang.String" itemvalue="Python.laban_posture" />
@@ -581,6 +743,21 @@
         <item index="2" class="java.lang.String" itemvalue="Python.main" />
         <item index="3" class="java.lang.String" itemvalue="Python.test" />
         <item index="4" class="java.lang.String" itemvalue="Python.test_BOW_deliverable" />
+=======
+      <item index="1" class="java.lang.String" itemvalue="Python.AE_rec" />
+      <item index="2" class="java.lang.String" itemvalue="Python.main" />
+      <item index="3" class="java.lang.String" itemvalue="Python.realtime_posture_extr" />
+      <item index="4" class="java.lang.String" itemvalue="Python.laban_posture" />
+      <item index="5" class="java.lang.String" itemvalue="Python.test_BOW_deliverable" />
+    </list>
+    <recent_temporary>
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Python.test_BOW_deliverable" />
+        <item index="1" class="java.lang.String" itemvalue="Python.laban_posture" />
+        <item index="2" class="java.lang.String" itemvalue="Python.realtime_posture_extr" />
+        <item index="3" class="java.lang.String" itemvalue="Python.main" />
+        <item index="4" class="java.lang.String" itemvalue="Python.AE_rec" />
+>>>>>>> 9348384985d2847c272133ff77ce6181ca1fa082
       </list>
     </recent_temporary>
   </component>
@@ -619,6 +796,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
+<<<<<<< HEAD
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11881785" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21364653" sideWeight="0.49758744" order="6" side_tool="false" content_ui="tabs" />
@@ -626,10 +804,25 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32997763" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37261504" sideWeight="0.49758744" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.44556677" sideWeight="0.48431846" order="2" side_tool="false" content_ui="tabs" />
+=======
+    <editor active="false" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11761158" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21364653" sideWeight="0.49758744" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3914989" sideWeight="0.51568156" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32997763" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32997763" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.46308726" sideWeight="0.49758744" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.46308726" sideWeight="0.48431846" order="2" side_tool="false" content_ui="tabs" />
+>>>>>>> 9348384985d2847c272133ff77ce6181ca1fa082
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32884398" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+<<<<<<< HEAD
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3714927" sideWeight="0.49095297" order="3" side_tool="false" content_ui="tabs" />
+=======
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4619687" sideWeight="0.49095297" order="3" side_tool="false" content_ui="tabs" />
+>>>>>>> 9348384985d2847c272133ff77ce6181ca1fa082
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -677,6 +870,38 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/test_BOW_deliverable.py</url>
+          <line>143</line>
+          <option name="timeStamp" value="595" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/AE_rec.py</url>
+          <line>801</line>
+          <option name="timeStamp" value="607" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/realtime_traj_dict.py</url>
+          <line>347</line>
+          <option name="timeStamp" value="620" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/test_BOW_deliverable.py</url>
+          <line>18</line>
+          <option name="timeStamp" value="623" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/test_BOW_deliverable.py</url>
+          <line>15</line>
+          <option name="timeStamp" value="624" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/realtime_traj_dict.py</url>
+          <line>463</line>
+          <option name="timeStamp" value="625" />
+        </line-breakpoint>
+      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
@@ -687,15 +912,44 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
+<<<<<<< HEAD
       <option name="time" value="663" />
+=======
+      <option name="time" value="626" />
+>>>>>>> 9348384985d2847c272133ff77ce6181ca1fa082
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/visualization.py" />
     <entry file="file://$PROJECT_DIR$/old_main_abd_ict4life.py" />
     <entry file="file://$PROJECT_DIR$/video_traj_old_dataset.py" />
     <entry file="file://$PROJECT_DIR$/ambient_sensors.py" />
+=======
+    <entry file="file://$PROJECT_DIR$/visualization.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="227" column="14" lean-forward="false" selection-start-line="227" selection-start-column="14" selection-end-line="227" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/old_main_abd_ict4life.py" />
+    <entry file="file://$PROJECT_DIR$/video_traj_old_dataset.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="6" column="15" lean-forward="false" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ambient_sensors.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="7" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+>>>>>>> 9348384985d2847c272133ff77ce6181ca1fa082
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -720,15 +974,44 @@
             <element signature="e#7550#10176#0" expanded="false" />
             <element signature="e#10237#10675#0" expanded="false" />
             <element signature="e#11473#12117#0" expanded="false" />
+<<<<<<< HEAD
             <marker date="1512552793827" expanded="false" signature="12165:12510" ph="..." />
+=======
+            <marker date="1512045566116" expanded="false" signature="12162:12507" ph="..." />
+>>>>>>> 9348384985d2847c272133ff77ce6181ca1fa082
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/visualization.py" />
     <entry file="file://$PROJECT_DIR$/old_main_abd_ict4life.py" />
     <entry file="file://$PROJECT_DIR$/video_traj_old_dataset.py" />
     <entry file="file://$PROJECT_DIR$/ambient_sensors.py" />
+=======
+    <entry file="file://$PROJECT_DIR$/visualization.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="227" column="14" lean-forward="false" selection-start-line="227" selection-start-column="14" selection-end-line="227" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/old_main_abd_ict4life.py" />
+    <entry file="file://$PROJECT_DIR$/video_traj_old_dataset.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="6" column="15" lean-forward="false" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ambient_sensors.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="7" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+>>>>>>> 9348384985d2847c272133ff77ce6181ca1fa082
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -807,10 +1090,35 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/video_traj_old_dataset.py" />
     <entry file="file://$PROJECT_DIR$/old_main_abd_ict4life.py" />
     <entry file="file://$PROJECT_DIR$/demo_pecs_review.py" />
     <entry file="file://$PROJECT_DIR$/pecs_data_analysis.py" />
+=======
+    <entry file="file://$PROJECT_DIR$/video_traj_old_dataset.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="538">
+          <caret line="265" column="24" lean-forward="true" selection-start-line="265" selection-start-column="24" selection-end-line="265" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/old_main_abd_ict4life.py" />
+    <entry file="file://$PROJECT_DIR$/demo_pecs_review.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2839">
+          <caret line="170" column="0" lean-forward="false" selection-start-line="170" selection-start-column="0" selection-end-line="227" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pecs_data_analysis.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="455">
+          <caret line="134" column="99" lean-forward="false" selection-start-line="134" selection-start-column="99" selection-end-line="134" selection-end-column="99" />
+        </state>
+      </provider>
+    </entry>
+>>>>>>> 9348384985d2847c272133ff77ce6181ca1fa082
     <entry file="file://$USER_HOME$/AppData/Local/Continuum/Anaconda2/envs/my_new_env/Lib/site-packages/scipy/ndimage/filters.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
@@ -855,7 +1163,17 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/realtime_simple_features_extraction.py" />
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/ambient_sensors.py" />
+=======
+    <entry file="file://$PROJECT_DIR$/ambient_sensors.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="28" column="36" lean-forward="false" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+>>>>>>> 9348384985d2847c272133ff77ce6181ca1fa082
     <entry file="file://$USER_HOME$/AppData/Local/Continuum/Anaconda2/envs/my_new_env/Lib/site-packages/sklearn/decomposition/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -870,16 +1188,24 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/experiments.py" />
     <entry file="file://$PROJECT_DIR$/test_BOW_deliverable.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="509">
           <caret line="85" column="0" lean-forward="true" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
+=======
+    <entry file="file://$USER_HOME$/AppData/Local/Continuum/Anaconda2/envs/my_new_env/Lib/site-packages/sklearn/cluster/k_means_.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="703" column="6" lean-forward="false" selection-start-line="703" selection-start-column="6" selection-end-line="703" selection-end-column="6" />
+>>>>>>> 9348384985d2847c272133ff77ce6181ca1fa082
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/img_processing.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="3910">
           <caret line="406" column="22" lean-forward="false" selection-start-line="406" selection-start-column="22" selection-end-line="406" selection-end-column="22" />
           <folding>
@@ -889,25 +1215,67 @@
             <element signature="e#10237#10675#0" expanded="false" />
             <element signature="e#11473#12117#0" expanded="false" />
             <marker date="1512552793827" expanded="false" signature="12165:12510" ph="..." />
+=======
+        <state relative-caret-position="7021">
+          <caret line="795" column="17" lean-forward="false" selection-start-line="795" selection-start-column="17" selection-end-line="795" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+            <element signature="e#708#2755#0" expanded="false" />
+            <element signature="e#2848#4897#0" expanded="false" />
+            <element signature="e#5023#8192#0" expanded="false" />
+            <element signature="e#8327#11728#0" expanded="false" />
+            <element signature="e#19915#22874#0" expanded="false" />
+>>>>>>> 9348384985d2847c272133ff77ce6181ca1fa082
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/visualization.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="43" column="27" lean-forward="true" selection-start-line="42" selection-start-column="4" selection-end-line="43" selection-end-column="27" />
+=======
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="26" column="49" lean-forward="false" selection-start-line="26" selection-start-column="49" selection-end-line="26" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_organizer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-121">
+          <caret line="186" column="4" lean-forward="false" selection-start-line="186" selection-start-column="4" selection-end-line="186" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/experiments.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3417">
+          <caret line="276" column="154" lean-forward="false" selection-start-line="276" selection-start-column="130" selection-end-line="276" selection-end-column="154" />
+          <folding>
+            <element signature="e#421#2282#0" expanded="false" />
+          </folding>
+>>>>>>> 9348384985d2847c272133ff77ce6181ca1fa082
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/hierarchical_ae_learning_methods.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="10829">
           <caret line="646" column="26" lean-forward="false" selection-start-line="646" selection-start-column="26" selection-end-line="646" selection-end-column="26" />
+=======
+        <state relative-caret-position="595">
+          <caret line="44" column="4" lean-forward="false" selection-start-line="44" selection-start-column="4" selection-end-line="44" selection-end-column="4" />
+>>>>>>> 9348384985d2847c272133ff77ce6181ca1fa082
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/realtime_traj_dict.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1496">
@@ -930,20 +1298,47 @@
           <caret line="139" column="51" lean-forward="false" selection-start-line="139" selection-start-column="51" selection-end-line="139" selection-end-column="51" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
+=======
+    <entry file="file://$PROJECT_DIR$/video_traj.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6426">
+          <caret line="388" column="39" lean-forward="false" selection-start-line="388" selection-start-column="39" selection-end-line="388" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laban_posture.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="74" lean-forward="false" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="74" />
+          <folding>
+            <element signature="e#788#1310#0" expanded="false" />
+            <element signature="e#12523#13920#0" expanded="false" />
+            <marker date="1512115225014" expanded="true" signature="10949:11252" ph="..." />
+>>>>>>> 9348384985d2847c272133ff77ce6181ca1fa082
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data_organizer.py">
+    <entry file="file://$PROJECT_DIR$/realtime_posture_extr.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="3332">
           <caret line="202" column="0" lean-forward="false" selection-start-line="202" selection-start-column="0" selection-end-line="202" selection-end-column="0" />
+=======
+        <state relative-caret-position="395">
+          <caret line="494" column="0" lean-forward="false" selection-start-line="494" selection-start-column="0" selection-end-line="494" selection-end-column="0" />
+>>>>>>> 9348384985d2847c272133ff77ce6181ca1fa082
           <folding>
-            <element signature="e#0#22#0" expanded="true" />
+            <element signature="e#0#18#0" expanded="true" />
+            <element signature="e#369#860#0" expanded="false" />
+            <element signature="e#13749#14268#0" expanded="false" />
+            <element signature="e#19729#19965#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/video_traj.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3060">
@@ -959,11 +1354,36 @@
         <state relative-caret-position="476">
           <caret line="36" column="20" lean-forward="false" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="20" />
           <folding />
+=======
+    <entry file="file://$PROJECT_DIR$/test_BOW_deliverable.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+>>>>>>> 9348384985d2847c272133ff77ce6181ca1fa082
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/realtime_posture_extr.py">
+    <entry file="file://$PROJECT_DIR$/img_processing.py">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="32" column="4" lean-forward="false" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+            <element signature="e#5158#7487#0" expanded="false" />
+            <element signature="e#7550#10176#0" expanded="false" />
+            <element signature="e#10237#10675#0" expanded="false" />
+            <element signature="e#11473#12117#0" expanded="false" />
+            <marker date="1512045566116" expanded="false" signature="12162:12507" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/realtime_traj_dict.py">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="6052">
           <caret line="497" column="205" lean-forward="false" selection-start-line="497" selection-start-column="205" selection-end-line="497" selection-end-column="205" />
           <folding>
@@ -1002,6 +1422,18 @@
             <element signature="e#759#1281#0" expanded="false" />
             <element signature="e#8340#10927#0" expanded="false" />
             <element signature="e#16499#20068#0" expanded="false" />
+=======
+        <state relative-caret-position="410">
+          <caret line="463" column="0" lean-forward="false" selection-start-line="463" selection-start-column="0" selection-end-line="463" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+            <element signature="e#1469#8548#0" expanded="false" />
+            <element signature="e#4765#5076#0" expanded="false" />
+            <element signature="e#6502#7228#0" expanded="false" />
+            <element signature="e#12092#12330#0" expanded="false" />
+            <element signature="e#15011#16768#0" expanded="false" />
+            <element signature="e#16805#17209#0" expanded="false" />
+>>>>>>> 9348384985d2847c272133ff77ce6181ca1fa082
           </folding>
         </state>
       </provider>
